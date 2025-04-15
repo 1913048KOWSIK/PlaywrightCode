@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","17800","Salary","chromium","Thu Apr 10 10:02:33 IST 2025","failed","Thu Apr 10 10:02:51 IST 2025","","Ajensia\Salary Management\SalaryManagement.spec.js","",""
+"","15213","Hybrid Test: Login with admin@ajensia.com and access Employee Management","chromium","Fri Apr 11 14:53:26 IST 2025","passed","Fri Apr 11 14:53:41 IST 2025","","Ajensia\Hybrid Framework\Just.spec.js","",""
+"","39127","test","chromium","Fri Apr 11 15:05:29 IST 2025","passed","Fri Apr 11 15:06:09 IST 2025","","Ajensia\Master\Department.spec.js","",""

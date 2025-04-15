@@ -1,0 +1,57 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Hybrid Test: Login with admin@ajensia.com and access Employee Management
+- Location: C:\Users\Kowsikan\Automation\tests\Ajensia\Hybrid Framework\Just.spec.js:8:7
+
+# Error details
+
+```
+Error: locator.waitFor: Target page, context or browser has been closed
+Call log:
+  - waiting for getByRole('button', { name: ' Employee Management 󰅂' }) to be visible
+
+    at EmployeePage.navigateToEmployeeManagement (C:\Users\Kowsikan\Automation\tests\POMFramework\EmployeeManagement.js:10:38)
+    at C:\Users\Kowsikan\Automation\tests\Ajensia\Hybrid Framework\Just.spec.js:19:19
+```
+
+# Test source
+
+```ts
+   1 | class EmployeePage {
+   2 |   constructor(page) {
+   3 |     this.page = page;
+   4 |     this.employeeManagementBtn = page.getByRole('button', { name: ' Employee Management 󰅂' });
+   5 |     this.employeeLink = page.getByRole('link', { name: 'Employee', exact: true });
+   6 |     this.departmentDropdown = page.getByLabel('Department');
+   7 |   }
+   8 |
+   9 |   async navigateToEmployeeManagement() {
+> 10 |     await this.employeeManagementBtn.waitFor();
+     |                                      ^ Error: locator.waitFor: Target page, context or browser has been closed
+  11 |     await this.employeeManagementBtn.click();
+  12 |
+  13 |     await this.employeeLink.waitFor();
+  14 |     await this.employeeLink.click();
+  15 |   }
+  16 |
+  17 |   async selectDepartment(deptValue) {
+  18 |     await this.departmentDropdown.waitFor();
+  19 |     await this.departmentDropdown.selectOption(deptValue);
+  20 |   }
+  21 |
+  22 |   async clearDepartmentSelection() {
+  23 |     await this.departmentDropdown.waitFor();
+  24 |     await this.departmentDropdown.selectOption('');
+  25 |   }
+  26 | }
+  27 |
+  28 | // ✅ Correctly exporting the class
+  29 | module.exports = { EmployeePage };
+  30 |
+```

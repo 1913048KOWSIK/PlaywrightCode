@@ -1,0 +1,65 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Salary
+- Location: C:\Users\Kowsikan\Automation\tests\Ajensia\Salary Management\SalaryManagement.spec.js:5:5
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: ' Salary Management 󰅂' })
+
+    at C:\Users\Kowsikan\Automation\tests\Ajensia\Salary Management\SalaryManagement.spec.js:8:70
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - button
+  - textbox "Search..."
+  - text: 󰍉
+  - button "Header Language":
+    - img "Header Language"
+  - button ""
+  - button ""
+  - button " 3 unread messages"
+  - button "Header Avatar Admin No Role Assigned":
+    - img "Header Avatar"
+    - text: Admin No Role Assigned
+- link "AJENSIA"
+- region "scrollable content":
+  - list:
+    - region "scrollable content":
+      - listitem: Menu
+- heading "Good Morning" [level=4]
+- paragraph: Welcome to Ajensia
+- contentinfo: 2025 © Ajensia. All Rights Reserved
+- text: 󰢻
+- img
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { login } from '../../ProjectLogin/AjensiaLogin';
+   3 |
+   4 |
+   5 | test('Salary', async ({ page }) => {
+   6 |   await login(page);
+   7 |
+>  8 |   await page.getByRole('button', { name: ' Salary Management 󰅂' }).click();
+     |                                                                      ^ TimeoutError: locator.click: Timeout 10000ms exceeded.
+   9 |   await page.getByRole('link', { name: 'Salary list' }).click();
+  10 |   await page.waitForTimeout(2000);
+  11 |
+  12 | });
+```
