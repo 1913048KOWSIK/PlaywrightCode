@@ -12,7 +12,7 @@ test('test', async ({ page }) => {
   await page.waitForTimeout(2000);
 
   await page.getByRole('link', { name: 'Add New Vendor' }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(5000);
 
   await page.getByRole('textbox', { name: 'Enter Vendor Name' }).click();
   await page.waitForTimeout(2000);

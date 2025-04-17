@@ -28,7 +28,7 @@ test('test', async ({ page }) => {
 
   await page.getByRole('button', { name: '2' }).click();
   await page.waitForTimeout(2000);
-
+  
   await page.getByRole('row', { name: 'Design UI Design  ' }).locator('a').first().click();
   await page.waitForTimeout(2000);
 
