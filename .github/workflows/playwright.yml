@@ -1,28 +1,37 @@
-name: Playwright Test - Specific Test File
+name: Playwright Tests
 
 on:
   push:
-    paths:
-      - 'tests/Ajensia/Approvals/ApprovalRequest.spec.js'  # Trigger only when this file changes
+    branches: [master]
   pull_request:
-    paths:
-      - 'tests/Ajensia/Approvals/ApprovalRequest.spec.js'
+    branches: [master]
 
 jobs:
-  test:
+  run-playwright-tests:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Run Playwright test for ApprovalRequest.spec.js
-      run: npx playwright test tests/Ajensia/Approvals/ApprovalRequest.spec.js
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npm test
+
+      # ⛔️ Temporarily disabled due to "Missing download info" error
+      # - name: Upload Playwright HTML Report
+      #   if: always()
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: playwright-html-report
+      #     path: playwright-report/
