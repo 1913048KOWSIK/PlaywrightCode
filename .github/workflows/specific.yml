@@ -1,0 +1,28 @@
+name: Playwright Test - Specific Test File
+
+on:
+  push:
+    paths:
+      - 'tests/Ajensia/Approvals/ApprovalRequest.spec.js'  # Trigger only when this file changes
+  pull_request:
+    paths:
+      - 'tests/Ajensia/Approvals/ApprovalRequest.spec.js'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run Playwright test for ApprovalRequest.spec.js
+      run: npx playwright test tests/Ajensia/Approvals/ApprovalRequest.spec.js
