@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { LoginPage } = require('../../POM Framework/AjensiaLogin');
+const { LoginPage } = require('../../POMFramework/AjensiaLogin');
 
 test.describe('Login Test Suite', () => {
   test('should login successfully with valid credentials', async ({ page }) => {
