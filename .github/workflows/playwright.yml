@@ -28,9 +28,10 @@ jobs:
       - name: Run Playwright tests
         run: npm test
 
-      - name: Upload Playwright HTML Report
-        if: always()
-        uses: actions/upload-artifact@v2.3.0  # <-- Updated to v2.3.0
-        with:
-          name: playwright-html-report
-          path: playwright-report/
+      # ⛔️ Temporarily disabled due to "Missing download info" error
+      # - name: Upload Playwright HTML Report
+      #   if: always()
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: playwright-html-report
+      #     path: playwright-report/
