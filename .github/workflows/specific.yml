@@ -1,29 +1,28 @@
-name: Playwright Test - Approval Module
-
+name: Playwright Test - Approvals Folder
 
 on:
   push:
     paths:
-      - 'tests/Ajensia/Approvals/ApprovalRequest.spec.js'  # Trigger only when this file changes
+      - 'tests/Ajensia/Approvals/**'  # Trigger when any file in this folder changes
   pull_request:
     paths:
-      - 'tests/Ajensia/Approvals/ApprovalRequest.spec.js'
+      - 'tests/Ajensia/Approvals/**'
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run Playwright test for ApprovalRequest.spec.js
-      run: npx playwright test tests/Ajensia/Approvals/ApprovalRequest.spec.js
+      - name: Run Playwright tests in Approvals folder
+        run: npx playwright test tests/Ajensia/Approvals/
