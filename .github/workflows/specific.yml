@@ -1,4 +1,5 @@
-name: Playwright Test - Specific Test File
+name: Playwright Test - Approval Module
+
 
 on:
   push:
