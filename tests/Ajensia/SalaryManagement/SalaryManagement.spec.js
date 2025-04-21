@@ -13,4 +13,5 @@ test('Salary', async ({ page }) => {
   await page.getByRole('link', { name: 'Salary list' }).click();
   await page.waitForTimeout(2000);
 
+  // They have no function after the salary list 
 });
