@@ -15,3 +15,4 @@ test('Salary', async ({ page }) => {
 
   // They have no function after the salary list 
 });
+  
