@@ -4,6 +4,8 @@ import { login } from '../../ProjectLogin/AjensiaLogin';
 test('test', async ({ page }) => {
     await login(page);
 
+    await page.waitForTimeout(2000);
+
   await page.getByRole('button', { name: ' Approvals 󰅂' }).click();
   await page.waitForTimeout(2000);
 
@@ -40,4 +42,6 @@ test('test', async ({ page }) => {
   await page.getByText('Submit').click();
   await page.waitForTimeout(2000);
 
+
+  // Not submiot the request 
 });
