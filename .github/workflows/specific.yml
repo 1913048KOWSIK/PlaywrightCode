@@ -34,7 +34,8 @@ jobs:
         run: ls -R playwright-report
 
       - name: Upload Playwright HTML Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-html-report
-          path: playwright-report
+  uses: actions/upload-artifact@v3
+  with:
+    name: playwright-html-report
+    path: playwright-report
+
