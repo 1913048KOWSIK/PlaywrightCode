@@ -3,40 +3,28 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-
-  /* Run tests in files in parallel */
   fullyParallel: true,
-
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-
-  /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-
-  /* Limit workers on CI to avoid resource issues */
   workers: process.env.CI ? 1 : undefined,
 
-  /* Configure reporters */
   reporter: [
-    ['list'], // Console output
-    ['html', { outputFolder: 'playwright-report', open: 'never' }], // HTML report
-    ['allure-playwright'], // Allure report
+    ['list'],
+    ['html', { outputFolder: 'playwright-report' }], // Generates HTML report
+    ['allure-playwright'], // Generates Allure report
   ],
 
-  /* Global timeout settings */
-  timeout: 120_000, // 120 seconds per test
+  timeout: 120000, // 120 seconds timeout for each test
 
   use: {
-    actionTimeout: 10_000, // Timeout for individual actions
-    navigationTimeout: 20_000, // Timeout for page navigations
+    actionTimeout: 10000, // Each action waits up to 10 seconds
+    navigationTimeout: 20000, // Navigation waits up to 20 seconds
   },
 
-  /* Define projects (browsers) */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    // Add Firefox/WebKit if needed
   ],
 });
