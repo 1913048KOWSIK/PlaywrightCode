@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/Ajensia/Approvals/",  
-    "test:file": "npx playwright test tests/Ajensia/Approvals/ApprovalRequest.spec.js",  
-    "test:folder": "npx playwright test tests/Ajensia/Approvals/"  
+    "test": "npx playwright test tests/Ajensia/Approvals/",
+    "test:file": "npx playwright test tests/Ajensia/Approvals/ApprovalRequest.spec.js",
+    "test:folder": "npx playwright test tests/Ajensia/Approvals/"
   },
   "keywords": [],
   "author": "",
@@ -14,8 +14,7 @@
   "devDependencies": {
     "@playwright/test": "^1.51.1",
     "@types/node": "^22.13.14",
-    "allure-playwright": "^3.2.1",
-    "playwright": "^1.38.1"
+    "allure-playwright": "^3.2.1"
   },
   "dependencies": {
     "xlsx": "^0.18.5"
