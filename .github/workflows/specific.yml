@@ -30,8 +30,11 @@ jobs:
       - name: Run Playwright tests in Approvals folder
         run: npx playwright test tests/Ajensia/Approvals/
 
+      - name: Check contents of playwright-report
+        run: ls -R playwright-report
+
       - name: Upload Playwright HTML Report
         uses: actions/upload-artifact@v3
         with:
           name: playwright-html-report
-          path: playwright-report
+          path: playwright-report/
