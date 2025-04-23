@@ -28,13 +28,13 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: ▶️ Run Playwright tests in Approvals folder
-        run: npx playwright test tests/Ajensia/Approvals/
+        run: npx playwright test tests/Ajensia/Approvals/ --reporter=html
 
       - name: 📁 Check contents of playwright-report folder
         run: ls -R playwright-report || echo "No report found"
 
       - name: 📤 Upload Playwright HTML Report
-        if: always()  # Ensure it runs even if tests fail
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: playwright-html-report
