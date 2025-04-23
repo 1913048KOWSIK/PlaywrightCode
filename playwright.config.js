@@ -2,41 +2,56 @@
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
+  // Directory where test files are located
   testDir: './tests',
 
-  /* Run tests in files in parallel */
+  // Run tests in parallel
   fullyParallel: true,
 
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
+  // Fail build on CI if test.only is left accidentally
   forbidOnly: !!process.env.CI,
 
-  /* Retry on CI only */
+  // Retry tests on CI
   retries: process.env.CI ? 2 : 0,
 
-  /* Limit workers on CI to avoid resource issues */
+  // Limit workers on CI to save resources
   workers: process.env.CI ? 1 : undefined,
 
-  /* Configure reporters */
+  // Reporters: list for CLI, html for artifact, allure for integration
   reporter: [
-    ['list'], // Console output
-    ['html', { outputFolder: 'playwright-report', open: 'never' }], // HTML report
-    ['allure-playwright'], // Allure report
+    ['list'],
+    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['allure-playwright'],
   ],
 
-  /* Global timeout settings */
-  timeout: 120_000, // 120 seconds per test
+  // Global timeouts
+  timeout: 120_000,
 
   use: {
-    actionTimeout: 10_000, // Timeout for individual actions
-    navigationTimeout: 20_000, // Timeout for page navigations
+    // Per action timeout
+    actionTimeout: 10_000,
+
+    // Navigation timeout
+    navigationTimeout: 20_000,
+
+    // Enable tracing for failed tests only (optional)
+    trace: 'on-first-retry',
   },
 
-  /* Define projects (browsers) */
+  // Define projects for different browsers
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    // Add Firefox/WebKit if needed
+    // Uncomment to enable Firefox or WebKit
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
   ],
 });
