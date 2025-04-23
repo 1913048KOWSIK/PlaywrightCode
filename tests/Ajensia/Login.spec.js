@@ -19,7 +19,6 @@ testData.forEach((data) => {
 
     
     await page.waitForTimeout(1000);
-
     
     await page.getByRole('button', { name: 'Sign In' }).click();
     
