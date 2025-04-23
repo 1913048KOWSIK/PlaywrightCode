@@ -13,27 +13,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🔄 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🧰 Setup Node.js
+      - name:  Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: 📦 Install dependencies
+      - name:  Install dependencies
         run: npm ci
 
-      - name: 📥 Install Playwright Browsers
+      - name:  Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: ▶️ Run Playwright tests in Approvals folder
+      - name:  Run Playwright tests in Approvals folder
         run: npx playwright test tests/Ajensia/Approvals/ --reporter=html
 
-      - name: 📁 Check contents of playwright-report folder
-        run: ls -R playwright-report || echo "No report found"
+      - name:  Debug: List report contents
+        run: |
+          echo "Checking for HTML report files..."
+          find playwright-report || echo "Report not found"
 
-      - name: 📤 Upload Playwright HTML Report
+      - name:  Upload Playwright HTML Report
         if: always()
         uses: actions/upload-artifact@v3
         with:
