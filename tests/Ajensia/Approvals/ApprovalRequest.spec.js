@@ -7,7 +7,7 @@ test('test', async ({ page }) => {
     await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: ' Approvals 󰅂' }).click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(2000);  
 
   await page.getByRole('link', { name: 'Approval Request' }).click();
   await page.waitForTimeout(2000);
@@ -42,6 +42,7 @@ test('test', async ({ page }) => {
   await page.getByText('Submit').click();
   await page.waitForTimeout(2000);
 
+  await page.screenshot({ path: 'C:/Users/Kowsikan/OneDrive - Haroob, LLC/Pictures/Playwright screenshots/Approvals.png' });
 
   // Not submiot the request 
 });

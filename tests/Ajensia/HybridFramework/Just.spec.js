@@ -18,6 +18,7 @@ loginData.forEach(({ Username, Password }) => {
 
     await page.waitForTimeout(3000); 
     // Employee Management (POM)l
+    
     const empPage = new EmployeePage(page);
     await empPage.navigateToEmployeeManagement(); 
     await page.waitForTimeout(2000); 

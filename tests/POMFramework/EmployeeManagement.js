@@ -11,8 +11,14 @@ class EmployeePage {
     
     await this.employeeManagementBtn.click();
 
+    await page.waitForTimeout(2000); 
+
     await this.employeeLink.waitFor();
+    await page.waitForTimeout(2000); 
+
     await this.employeeLink.click();
+    await page.waitForTimeout(2000); 
+
   }
 
   async selectDepartment(deptValue) {

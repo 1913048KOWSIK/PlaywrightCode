@@ -138,13 +138,8 @@ test('test', async ({ page }) => {
   await page.getByRole('tab', { name: 'Additional Info' }).click();
   await page.waitForTimeout(2000);
 
- 
- 
- 
-  // Navigate back to the page
   await page.goBack();
-  await page.waitForNavigation(); 
-  await page.waitForTimeout(2000);
+
 /*
 
 await page.waitForLoadState("domcontentloaded");
