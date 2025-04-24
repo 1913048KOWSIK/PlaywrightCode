@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test"
-  
+    "test": "npx playwright test tests/Ajensia/HybridFramework/",
+    "test:file": "npx playwright test tests/Ajensia/HybridFramework/Just.spec.spec.js",
+    "test:folder": "npx playwright test tests/Ajensia/HybridFramework/"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",

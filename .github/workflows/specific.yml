@@ -2,10 +2,10 @@ name: Playwright Test - Approvals Folder
 on:
   push:
     paths:
-      - 'tests/Ajensia/Approvals/**'
+      - 'tests/Ajensia/HybridFramework/**'
   pull_request:
     paths:
-      - 'tests/Ajensia/Approvals/**'
+      - 'tests/Ajensia/HybridFramework/**'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: ▶️ Run Playwright tests in Approvals folder
-        run: npx playwright test tests/Ajensia/Approvals/ --reporter=html
+        run: npx playwright test tests/Ajensia/HybridFramework/ --reporter=html
 
       - name: 🔍 Debug: List report contents
         run: |
