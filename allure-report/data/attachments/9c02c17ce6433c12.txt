@@ -1,0 +1,208 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: test
+- Location: C:\Users\Kowsikan\Automation\tests\Ajensia\Approvals\ApprovalRequest.spec.js:4:5
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: ' Approvals 󰅂' })
+    - locator resolved to <a role="button" href="#approval" aria-expanded="false" data-bs-toggle="collapse" aria-controls="sidebarPaylsip" class="nav-link menu-link collapsed">…</a>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="offcanvas-backdrop fade show"></div> intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="offcanvas-backdrop fade show"></div> intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    16 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="offcanvas-backdrop fade show"></div> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at C:\Users\Kowsikan\Automation\tests\Ajensia\Approvals\ApprovalRequest.spec.js:9:62
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - button
+  - textbox "Search..."
+  - text: 󰍉
+  - button "Header Language":
+    - img "Header Language"
+  - button ""
+  - button ""
+  - button " 3 unread messages"
+  - button "Header Avatar Admin Admin":
+    - img "Header Avatar"
+    - text: Admin Admin
+- link "AJENSIA"
+- region "scrollable content":
+  - list:
+    - region "scrollable content":
+      - listitem: Menu
+      - listitem:
+        - button " Dashboards 󰅂"
+      - listitem:
+        - button " Employee Management 󰅂"
+      - listitem:
+        - button " Salary Management 󰅂"
+      - listitem:
+        - button " Payslip Management 󰅂"
+      - listitem:
+        - button " Asset Management 󰅂"
+      - listitem:
+        - button " Master 󰅂"
+      - listitem:
+        - button " Approvals 󰅂"
+      - listitem:
+        - button " Settings 󰅂"
+      - listitem:
+        - button " Salary Structure 󰅂"
+      - listitem:
+        - button " Job Recuritment 󰅂"
+      - listitem:
+        - link " Candidate"
+- heading "Good Morning" [level=4]
+- paragraph: Welcome to Ajensia
+- contentinfo: 2025 © Ajensia. All Rights Reserved
+- text: 󰢻
+- heading "Theme Customizer" [level=5]
+- button "Close"
+- region "scrollable content":
+  - heading "Layout" [level=6]
+  - paragraph: Choose your layout
+  - text: 
+  - heading "Vertical" [level=5]
+  - heading "Horizontal" [level=5]
+  - heading "Two Column" [level=5]
+  - heading "Semi Box" [level=5]
+  - heading "Color Scheme" [level=6]
+  - paragraph: Choose Light or Dark Scheme.
+  - text: 
+  - heading "Light" [level=5]
+  - heading "Dark" [level=5]
+  - heading "Layout Width" [level=6]
+  - paragraph: Choose Fluid or Boxed layout.
+  - text: 
+  - heading "Fluid" [level=5]
+  - heading "Boxed" [level=5]
+  - heading "Layout Position" [level=6]
+  - paragraph: Choose Fixed or Scrollable Layout Position.
+  - group:
+    - radio "Fixed" [checked]
+    - text: Fixed
+    - radio "Scrollable"
+    - text: Scrollable
+  - heading "Topbar Color" [level=6]
+  - paragraph: Choose Light or Dark Topbar Color.
+  - text: 
+  - heading "Light" [level=5]
+  - heading "Dark" [level=5]
+  - heading "Sidebar Size" [level=6]
+  - paragraph: Choose a size of Sidebar.
+  - text: 
+  - heading "Default" [level=5]
+  - heading "Compact" [level=5]
+  - heading "Small (Icon View)" [level=5]
+  - heading "Small Hover View" [level=5]
+  - heading "Sidebar View" [level=6]
+  - paragraph: Choose Default or Detached Sidebar view.
+  - text: 
+  - heading "Default" [level=5]
+  - heading "Detached" [level=5]
+  - heading "Sidebar Color" [level=6]
+  - paragraph: Choose a color of Sidebar.
+  - heading "Light" [level=5]
+  - text: 
+  - heading "Dark" [level=5]
+  - button
+  - heading "Gradient" [level=5]
+  - heading "Sidebar Images" [level=6]
+  - paragraph: Choose a image of Sidebar.
+  - text:  
+  - heading "Preloader" [level=6]
+  - paragraph: Choose a preloader.
+  - status: Loading...
+  - heading "Enable" [level=5]
+  - text: 
+  - heading "Disable" [level=5]
+- button "Reset"
+- button "Preview"
+- img
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { login } from '../../ProjectLogin/AjensiaLogin';
+   3 |
+   4 | test('test', async ({ page }) => {
+   5 |     await login(page);
+   6 |
+   7 |     await page.waitForTimeout(2000);
+   8 |
+>  9 |   await page.getByRole('button', { name: ' Approvals 󰅂' }).click();
+     |                                                              ^ TimeoutError: locator.click: Timeout 10000ms exceeded.
+  10 |   await page.waitForTimeout(2000);  
+  11 |
+  12 |   await page.getByRole('link', { name: 'Approval Request' }).click();
+  13 |   await page.waitForTimeout(2000);
+  14 |
+  15 |   await page.locator('div:nth-child(5) > .card > .d-flex').click();
+  16 |   await page.waitForTimeout(2000);
+  17 |
+  18 |   await page.getByRole('button', { name: 'New Approval Request' }).click();
+  19 |   await page.waitForTimeout(2000);
+  20 |
+  21 |   await page.locator('form').filter({ hasText: 'Subject Request Type Select' }).locator('input[type="text"]').click();
+  22 |   await page.waitForTimeout(2000);
+  23 |
+  24 |   await page.locator('form').filter({ hasText: 'Subject Request Type Select' }).locator('input[type="text"]').fill('Sick Leave');
+  25 |   await page.waitForTimeout(2000);
+  26 |
+  27 |   await page.locator('select').selectOption('2');
+  28 |   await page.waitForTimeout(2000);
+  29 |
+  30 |   await page.locator('input[type="date"]').first().fill('2025-04-11');
+  31 |   await page.waitForTimeout(2000);
+  32 |
+  33 |   await page.locator('input[type="date"]').nth(1).fill('2025-04-12');
+  34 |   await page.waitForTimeout(2000);
+  35 |
+  36 |   await page.locator('textarea').click();
+  37 |   await page.waitForTimeout(2000);
+  38 |
+  39 |   await page.locator('textarea').fill('xyz');
+  40 |   await page.waitForTimeout(2000);
+  41 |
+  42 |   await page.getByText('Submit').click();
+  43 |   await page.waitForTimeout(2000);
+  44 |
+  45 |   await page.screenshot({ path: 'C:/Users/Kowsikan/OneDrive - Haroob, LLC/Pictures/Playwright screenshots/Approvals.png' });
+  46 |
+  47 |   // Not submiot the request 
+  48 | });
+```

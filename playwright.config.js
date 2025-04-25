@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
@@ -19,20 +18,16 @@ export default defineConfig({
   use: {
     actionTimeout: 10_000,
     navigationTimeout: 20_000,
-
     // ✅ Enable trace recording
     trace: 'on-first-retry',   
            //  'on',
-
     // ✅ Record video only on test failure
     video: 'retain-on-failure', 
-          //   'on',
-
+          //   'on'
     // ✅ Take screenshot only on failure (optional)
     screenshot:  'only-on-failure', 
              // 'on',  
   },
-
   projects: [
     {
       name: 'chromium',
