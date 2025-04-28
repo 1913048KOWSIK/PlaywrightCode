@@ -1,19 +1,18 @@
 {
   "name": "automation",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/Ajensia/HybridFramework/",
-    "test:file": "npx playwright test tests/Ajensia/HybridFramework/Just.spec.spec.js",
-    "test:folder": "npx playwright test tests/Ajensia/HybridFramework/"
-
+    "test": "npx playwright test tests/Ajensia/Approvals/",
+    "test:file": "npx playwright test tests/Ajensia/Approvals/ApprovalRequest.spec.spec.js",
+    "test:folder": "npx playwright test tests/Ajensia/Approvals/",
+    "test:report": "npx playwright test tests/Ajensia/Approvals/ && npx playwright show-report",
+    "show:report": "npx playwright show-report"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-
   "devDependencies": {
     "@playwright/test": "^1.51.1",
     "@types/node": "^22.13.14",
