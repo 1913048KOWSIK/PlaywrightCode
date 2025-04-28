@@ -18,16 +18,11 @@ export default defineConfig({
   use: {
     actionTimeout: 10_000,
     navigationTimeout: 20_000,
-    // ✅ Enable trace recording
-    trace: 'on-first-retry',   
-           //  'on',
-    // ✅ Record video only on test failure
-    video: 'retain-on-failure', 
-          //   'on'
-    // ✅ Take screenshot only on failure (optional)
-    screenshot:  'only-on-failure', 
-             // 'on',  
+    trace: 'on',		 // Trace recording
+    video: 'on', 		// Video recording	
+    screenshot:  'on', 	// Screenshot recording
   },
+
   projects: [
     {
       name: 'chromium',

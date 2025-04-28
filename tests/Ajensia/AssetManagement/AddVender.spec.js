@@ -5,6 +5,8 @@ test('test', async ({ page }) => {
 
     await login(page);
   
+    await page.waitForTimeout(2000);
+
   await page.getByRole('button', { name: ' Asset Management 󰅂' }).click();
   await page.waitForTimeout(2000);
 
