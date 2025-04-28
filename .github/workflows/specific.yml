@@ -3,46 +3,26 @@ name: Playwright Test - Approvals Folder
 on:
   push:
     paths:
-      - 'tests/Ajensia/Approvals/**/*'  # Include all files under this folder
+      - 'tests/Ajensia/Approvals/**'  # Trigger when any file in this folder changes
   pull_request:
     paths:
-      - 'tests/Ajensia/Approvals/**/*'  # Include all files under this folder
+      - 'tests/Ajensia/Approvals/**'
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🔄 Checkout code
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🧰 Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: 📦 Install dependencies
-        run: npm ci
+      - name: Install dependencies
+        run: npm install
 
-      - name: 📥 Install Playwright Browsers
-        run: |
-          npx playwright install --with-deps
-          echo "Playwright browsers installed."
-
-      - name: ▶️ Run Playwright tests in Approvals folder and generate HTML report
-        run: |
-          echo "Running Playwright tests..."
-          npx playwright test tests/Ajensia/Approvals/ --reporter=html
-          echo "Playwright tests completed."
-
-      - name: 🔍 Debug: List report contents
-        run: |
-          echo "Checking for HTML report files..."
-          ls -lh playwright-report || echo "Report not found"
-
-      - name: 📤 Upload Playwright HTML Report
-        if: always()  # Ensure the upload step runs regardless of test result
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-html-report
-          path: playwright-report/**  # Make sure path is correct
+      - name: Run Playwright tests in Approvals folder
+        run: npx playwright test tests/Ajensia/Approvals/
