@@ -27,21 +27,17 @@ jobs:
       - name: 📥 Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: ▶️ Run Playwright tests in Approvals folder
-        run: npx playwright test tests/Ajensia/Approvals/
-
-      - name: 📂 Generate HTML report manually
-        if: always()
-        run: npx playwright show-report --reporter=html
+      - name: ▶️ Run Playwright tests in Approvals folder and generate HTML report
+        run: npx playwright test tests/Ajensia/Approvals/ --reporter=html
 
       - name: 🔍 Debug: List report contents
         run: |
           echo "Checking for HTML report files..."
-          ls -R .playwright-report || echo "Report not found"
+          ls -R playwright-report || echo "Report not found"
 
       - name: 📤 Upload Playwright HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
-          path: .playwright-report
+          path: playwright-report
