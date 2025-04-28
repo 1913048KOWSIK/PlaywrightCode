@@ -3,10 +3,10 @@ name: Playwright Test - Approvals Folder
 on:
   push:
     paths:
-      - 'tests/Ajensia/Approvals/**'
+      - 'tests/Ajensia/Approvals/**/*'  # Include all files under this folder
   pull_request:
     paths:
-      - 'tests/Ajensia/Approvals/**'
+      - 'tests/Ajensia/Approvals/**/*'  # Include all files under this folder
 
 jobs:
   test:
@@ -41,9 +41,7 @@ jobs:
           ls -lh playwright-report || echo "Report not found"
 
       - name: 📤 Upload Playwright HTML Report
-        if: always() # Ensure the upload step runs regardless of test result
-        run: |
-          echo "Uploading Playwright HTML report..."
+        if: always()  # Ensure the upload step runs regardless of test result
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report

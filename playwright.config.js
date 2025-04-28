@@ -18,10 +18,11 @@ export default defineConfig({
   use: {
     actionTimeout: 10_000,
     navigationTimeout: 20_000,
-    trace: 'on',		 // Trace recording
-    video: 'on', 		// Video recording	
-    screenshot:  'on', 	// Screenshot recording
+    trace: 'on-first-retry',		 // Trace recording
+    video: 'retain-on-failure', 		// Video recording	
+    screenshot:  'only-on-failure', 	// Screenshot recording
   },
+
 
   projects: [
     {
