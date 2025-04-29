@@ -15,13 +15,16 @@ export default defineConfig({
 
   timeout: 120_000,
 
+  
+
   use: {
     actionTimeout: 10_000,
     navigationTimeout: 20_000,
-    trace: 'on-first-retry',
-    video: 'retain-on-failure',
-    screenshot: 'only-on-failure',
+    trace: 'on-first-retry',		 // Trace recording
+    video: 'retain-on-failure', 		// Video recording	
+    screenshot:  'only-on-failure', 	// Screenshot recording
   },
+
 
   projects: [
     {
