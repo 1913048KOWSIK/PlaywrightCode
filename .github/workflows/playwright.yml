@@ -1,13 +1,10 @@
 name: Playwright Tests
 
-n:
+on:
   push:
-    paths:
-      - 'tests/Ajensia/Approvals/**'  # Trigger when any file in this folder changes
+    branches: [master]
   pull_request:
-    paths:
-      - 'tests/Ajensia/Approvals/**'
-
+    branches: [master]
 
 jobs:
   run-playwright-tests:
