@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/Ajensia/Approvals/",
-    "test:file": "npx playwright test tests/Ajensia/Approvals/ApprovalRequest.spec.spec.js",
-    "test:folder": "npx playwright test tests/Ajensia/Approvals/",
-    "test:report": "npx playwright test tests/Ajensia/Approvals/ && npx playwright show-report",
+    "test": "npx playwright test tests/Ajensia/AssetManagement/",
+    "test:file": "npx playwright test tests/Ajensia/AssetManagement/AddVender.spec.spec.js",
+    "test:folder": "npx playwright test tests/Ajensia/AssetManagement/",
+    "test:report": "npx playwright test tests/Ajensia/AssetManagement/ && npx playwright show-report",
     "show:report": "npx playwright show-report"
   },
   "keywords": [],
