@@ -1,13 +1,12 @@
-name: Playwright Test - AssetManagement Folder
+name: Playwright Test - Approvals Folder
 
 on:
   push:
     paths:
-      - 'tests/Ajensia/AssetManagement/**'  # Trigger when any file in this folder changes
+      - 'tests/Ajensia/Approvals/**'  # Trigger when any file in this folder changes
   pull_request:
     paths:
-      - 'tests/Ajensia/AssetManagement/**'
-  workflow_dispatch:  # ✅ Allows manual trigger from GitHub UI
+      - 'tests/Ajensia/Approvals/**'
 
 jobs:
   test:
@@ -18,18 +17,12 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Run Playwright tests in AssetManagement folder
-        run: npx playwright test tests/Ajensia/AssetManagement/
-
-      - name: Upload Playwright HTML report
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-html-report
-          path: playwright-report
+      - name: Run Playwright tests in Approvals folder
+        run: npx playwright test tests/Ajensia/Approvals/
