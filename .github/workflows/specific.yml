@@ -3,11 +3,11 @@ name: Playwright Test - Approvals Folder
 on:
   push:
     paths:
-      - 'tests/Ajensia/Approvals/**'  # Trigger when files under Approvals change
+      - 'tests/Ajensia/Approvals/**'
   pull_request:
     paths:
       - 'tests/Ajensia/Approvals/**'
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:  # Allows manual trigger from UI
 
 jobs:
   run-specific-playwright-tests:
@@ -28,8 +28,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests in Approvals folder
-        run: npx playwright test tests/Ajensia/Approvals/
+      - name: Run only Approvals tests
+        run: npx playwright test 'tests/Ajensia/Approvals/**/*.spec.ts' --project=chromium
 
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4

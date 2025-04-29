@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "npx playwright test tests/Ajensia/Approvals/",
-    "test:file": "npx playwright test tests/Ajensia/Approvals/AddVender.spec.spec.js",
-    "test:folder": "npx playwright test tests/Ajensia/Approvals/",
-    "test:report": "npx playwright test tests/Ajensia/Approvals/ && npx playwright show-report",
-    "show:report": "npx playwright show-report"
-  },
+ "scripts": {
+  "test": "npx playwright test",
+  "test:approvals": "npx playwright test 'tests/Ajensia/Approvals/**/*.spec.ts' --project=chromium",
+  "test:report": "npm run test:approvals && npx playwright show-report",
+  "show:report": "npx playwright show-report"
+},
+
   "keywords": [],
   "author": "",
   "license": "ISC",
