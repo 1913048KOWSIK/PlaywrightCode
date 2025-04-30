@@ -1,18 +1,15 @@
 {
   "name": "automation",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/Ajensia/Approvals/",
-    "test:file": "npx playwright test tests/Ajensia/Approvals/AddVender.spec.spec.js",
-    "test:folder": "npx playwright test tests/Ajensia/Approvals/",
-    "test:report": "npx playwright test tests/Ajensia/Approvals/ && npx playwright show-report",
-    "show:report": "npx playwright show-report"
+    "test": "npx playwright test" 
+  
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
     "@types/node": "^22.13.14",
