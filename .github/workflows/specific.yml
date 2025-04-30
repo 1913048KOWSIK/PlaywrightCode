@@ -1,35 +1,43 @@
-name: Playwright Test - AssetManagement Folder
+name: Playwright Test - Approvals Folder
 
 on:
   push:
     paths:
-      - 'tests/Ajensia/AssetManagement/**'  # Trigger when any file in this folder changes
+      - 'tests/Ajensia/Approvals/**'
   pull_request:
     paths:
-      - 'tests/Ajensia/AssetManagement/**'
-  workflow_dispatch:  # ✅ Allows manual trigger from GitHub UI
+      - 'tests/Ajensia/Approvals/**'
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 🔄 Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: 🧰 Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      - name: Install dependencies
-        run: npm install
+      - name: 📦 Install dependencies
+        run: npm ci
 
-      - name: Run Playwright tests in AssetManagement folder
-        run: npx playwright test tests/Ajensia/AssetManagement/
+      - name: 📥 Install Playwright Browsers
+        run: npx playwright install --with-deps
 
-      - name: Upload Playwright HTML report
-        uses: actions/upload-artifact@v4
+      - name: ▶️ Run Playwright tests in Approvals folder
+        run: npx playwright test tests/Ajensia/Approvals/ --reporter=html
+
+      - name: 🔍 Debug: List report contents
+        run: |
+          echo "Checking for HTML report files..."
+          find playwright-report || echo "Report not found"
+
+      - name: 📤 Upload Playwright HTML Report
+        if: always()
+        uses: actions/upload-artifact@v3
         with:
           name: playwright-html-report
           path: playwright-report
