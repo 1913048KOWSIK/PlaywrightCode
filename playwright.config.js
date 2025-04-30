@@ -26,9 +26,6 @@ export default defineConfig({
     video: 'retain-on-failure', 		// Video recording	
     screenshot:  'only-on-failure', 	// Screenshot recording
   },
-
-
-
   projects: [
     {
       name: 'chromium',

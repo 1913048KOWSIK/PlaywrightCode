@@ -1,4 +1,4 @@
-name: Playwright Test - ApproAssetManagementvals Folder
+name: Playwright Test - Specific File
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
     paths:
       - 'tests/Ajensia/AssetManagement/AssetAssignedList.spec.js'
 
-jobs: 
+jobs:
   test:
     runs-on: ubuntu-latest
 
@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: 🧰 Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -27,13 +27,13 @@ jobs:
       - name: 📥 Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: ▶️ Run Playwright tests in Approvals folder
-        run: npx playwright test tests/Ajensia/AssetManagement/ --reporter=html
+      - name: ▶️ Run Playwright test for specific file
+        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js
 
-      - name: 🔍 Debug - Check if HTML report exists
+      - name: 🔍 Debug – Check if HTML report exists
         run: ls -R playwright-report || echo "HTML report not found"
 
-      - name: 📤 Upload Playwright HTML report
+      - name: ⬆️ Upload Playwright HTML report
         if: always()
         uses: actions/upload-artifact@v4
         with:
