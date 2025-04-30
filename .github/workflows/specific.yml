@@ -1,12 +1,12 @@
-name: Playwright Test - Approvals Folder
+name: Playwright Test - AssetManagement Folder
 
 on:
   push:
     paths:
-      - 'tests/Ajensia/Approvals/**'
+      - 'tests/Ajensia/AssetManagement/**'
   pull_request:
     paths:
-      - 'tests/Ajensia/Approvals/**'
+      - 'tests/Ajensia/AssetManagement/**'
 
 jobs:
   test:
@@ -27,8 +27,8 @@ jobs:
       - name: 📥 Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: ▶️ Run Playwright tests in Approvals folder
-        run: npx playwright test tests/Ajensia/Approvals/ --reporter=html
+      - name: ▶️ Run Playwright tests in AssetManagement folder
+        run: npx playwright test tests/Ajensia/AssetManagement/ --reporter=html
 
       - name: 🔍 Debug: List report contents
         run: |

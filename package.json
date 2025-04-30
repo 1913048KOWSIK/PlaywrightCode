@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/Ajensia/Approvals/",
-    "test:file": "npx playwright test tests/Ajensia/Approvals/ApprovalRequest.spec.js",
-    "test:folder": "npx playwright test tests/Ajensia/Approvals/"
+    "test": "npx playwright test tests/Ajensia/AssetManagement/",
+    "test:file": "npx playwright test tests/Ajensia/AssetManagement/AddVender.spec.js",
+    "test:folder": "npx playwright test tests/Ajensia/AssetManagement/"
   },
   "keywords": [],
   "author": "",
