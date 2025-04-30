@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/Ajensia/AssetManagement/",
-    "test:file": "npx playwright test tests/Ajensia/AssetManagement/AddVender.spec.js",
+    "test": "npx playwright test",  
+    "test:file": "npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js", 
     "test:folder": "npx playwright test tests/Ajensia/AssetManagement/"
   },
   "keywords": [],

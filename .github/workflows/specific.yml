@@ -1,4 +1,4 @@
-name: Playwright Test - AssetManagement Folder
+name: Playwright Test - AssetAssignedList Only
 
 on:
   push:
@@ -27,8 +27,8 @@ jobs:
       - name: 📥 Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: ▶️ Run Playwright tests in AssetManagement folder
-        run: npx playwright test tests/Ajensia/AssetManagement/ --reporter=html
+      - name: ▶️ Run specific Playwright test: AssetAssignedList
+        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js --reporter=html
 
       - name: 🔍 Debug: List report contents
         run: |
