@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: 🧰 Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
 
@@ -29,5 +29,11 @@ jobs:
 
       - name: ▶️ Run specific Playwright test: AssetAssignedList
         run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js --reporter=html
+
+        - name: Upload Playwright HTML report
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-html-report
+          path: playwright-report
 
     
