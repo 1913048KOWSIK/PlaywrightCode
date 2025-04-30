@@ -1,6 +1,6 @@
-import { defineConfig, devices } from '@playwright/test';
+const { devices } = require('@playwright/test');
 
-export default defineConfig({
+module.exports = {
   testDir: './tests',
 
   fullyParallel: true,
@@ -26,11 +26,11 @@ export default defineConfig({
     video: 'retain-on-failure', 		// Video recording	
     screenshot:  'only-on-failure', 	// Screenshot recording
   },
+
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-    
   ],
-});
+};
