@@ -28,12 +28,14 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: ▶️ Run Playwright tests in Approvals folder
-        run: npx playwright test tests/Ajensia/AssetManagement/ 
+        run: npx playwright test tests/Ajensia/AssetManagement/ --reporter=html
 
-      - name: Upload Playwright HTML report
+      - name: 🔍 Debug - Check if HTML report exists
+        run: ls -R playwright-report || echo "HTML report not found"
+
+      - name: 📤 Upload Playwright HTML report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
           path: playwright-report
-
-        
