@@ -1,10 +1,12 @@
-name: Playwright Tests
+name: Playwright Specific File Test
 
 on:
   push:
-    branches: [master]
+    paths:
+      - 'tests/Ajensia/AssetManagement/AssetAssignedList.spec.js'
   pull_request:
-    branches: [master]
+    paths:
+      - 'tests/Ajensia/AssetManagement/AssetAssignedList.spec.js'
 
 jobs:
   run-playwright-tests:
@@ -15,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -25,14 +27,14 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: npm test
+      - name: Run Playwright test (specific file)
+        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js --reporter=list,html
 
-        -name: Upload Playwright HTML report
+      - name: Debug Report Folder
+        run: ls -R
+
+      - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
           path: playwright-report
-
-
-      
