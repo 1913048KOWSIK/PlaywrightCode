@@ -3,10 +3,10 @@ name: Playwright Test - AssetManagement Folder
 on:
   push:
     paths:
-      - 'tests/Ajensia/AssetManagement/**'
+      - 'tests/Ajensia/AssetManagement/AssetAssignedList.spec.js'
   pull_request:
     paths:
-      - 'tests/Ajensia/AssetManagement/**'
+      - 'tests/Ajensia/AssetManagement/AssetAssignedList.spec.js'
 
 jobs:
   test:

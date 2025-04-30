@@ -1,0 +1,73 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: test
+- Location: C:\Users\Kowsikan\Automation\tests\Ajensia\AssetManagement\AddVender.spec.js:4:5
+
+# Error details
+
+```
+TimeoutError: page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://testajensiacloud.carifer.com/login", waiting until "load"
+
+    at login (C:\Users\Kowsikan\Automation\tests\ProjectLogin\AjensiaLogin.js:3:14)
+    at C:\Users\Kowsikan\Automation\tests\Ajensia\AssetManagement\AddVender.spec.js:6:16
+```
+
+# Page snapshot
+
+```yaml
+- heading "This site can’t be reached" [level=1]
+- paragraph:
+  - strong: testajensiacloud.carifer.com
+  - text: took too long to respond.
+- paragraph: "Try:"
+- list:
+  - listitem: Checking the connection
+  - listitem:
+    - link "Checking the proxy and the firewall"
+  - listitem:
+    - link "Running Windows Network Diagnostics"
+- text: ERR_CONNECTION_TIMED_OUT
+- button "Reload"
+- button "Details"
+```
+
+# Test source
+
+```ts
+   1 | export async function login(page) {  
+   2 |     
+>  3 |   await page.goto('https://testajensiacloud.carifer.com/login');
+     |              ^ TimeoutError: page.goto: Timeout 20000ms exceeded.
+   4 |   
+   5 |   await page.getByRole('textbox', { name: 'Username *' }).click();
+   6 |   await page.waitForTimeout(1000);
+   7 |   await page.getByRole('textbox', { name: 'Username *' }).press('ControlOrMeta+a');
+   8 |   await page.waitForTimeout(1000);
+   9 |   await page.getByRole('textbox', { name: 'Username *' }).fill('admin@ajensia.com');
+  10 |   await page.waitForTimeout(1000);
+  11 |
+  12 |   await page.getByRole('textbox', { name: 'Password *' }).click();
+  13 |   await page.waitForTimeout(1000);
+  14 |   await page.getByRole('textbox', { name: 'Password *' }).press('ControlOrMeta+a');
+  15 |   await page.waitForTimeout(1000);
+  16 |   await page.getByRole('textbox', { name: 'Password *' }).fill('Admin@123');
+  17 |   await page.waitForTimeout(3000);
+  18 |
+  19 |   await page.getByRole('button', { name: 'Sign In' }).click();
+  20 |   await page.waitForTimeout(1000);
+  21 |
+  22 |   await page.getByRole('button', { name: 'Close' }).click();
+  23 |   await page.waitForTimeout(2000);
+  24 |
+  25 |
+  26 | }
+  27 |
+```

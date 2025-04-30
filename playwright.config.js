@@ -28,15 +28,13 @@ export default defineConfig({
   timeout: 120_000,
 
   use: {
-    // Per action timeout
     actionTimeout: 10_000,
-
-    // Navigation timeout
     navigationTimeout: 20_000,
-
-    // Enable tracing for failed tests only (optional)
-    trace: 'on-first-retry',
+    trace: 'on-first-retry',		 // Trace recording
+    video: 'retain-on-failure', 		// Video recording	
+    screenshot:  'only-on-failure', 	// Screenshot recording
   },
+
 
   // Define projects for different browsers
   projects: [
