@@ -1,4 +1,4 @@
-name: Playwright Test - Specific File
+name: Playwright Specific File Test
 
 on:
   push:
@@ -13,28 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🔄 Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: 🧰 Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 18
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm ci
 
-      - name: 📥 Install Playwright Browsers
+      - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: ▶️ Run Playwright test for specific file
-        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js
+      - name: Run Playwright test (specific file)
+        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js --config=playwright.config.js
 
-      - name: 🔍 Debug – Check if HTML report exists
-        run: ls -R playwright-report || echo "HTML report not found"
-
-      - name: ⬆️ Upload Playwright HTML report
-        if: always()
+      - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
