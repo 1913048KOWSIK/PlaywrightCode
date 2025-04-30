@@ -28,7 +28,10 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright test (specific file)
-        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js --config=playwright.config.js
+        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js --reporter=list,html
+
+      - name: Debug Report Folder
+        run: ls -R
 
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
