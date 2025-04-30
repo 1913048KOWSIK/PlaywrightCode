@@ -30,10 +30,8 @@ jobs:
       - name: ▶️ Run specific Playwright test: AssetAssignedList
         run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js --reporter=html
 
-        - name: Upload Playwright HTML report
-        uses: actions/upload-artifact@v4
+      - name: 📤 Upload Playwright HTML report
+        uses: actions/upload-artifact@v3
         with:
           name: playwright-html-report
           path: playwright-report
-
-    

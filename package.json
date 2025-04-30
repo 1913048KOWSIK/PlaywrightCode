@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js",  
+    "test:asset": "npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js",
     "test:file": "npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js", 
     "test:folder": "npx playwright test tests/Ajensia/AssetManagement/"
   },
