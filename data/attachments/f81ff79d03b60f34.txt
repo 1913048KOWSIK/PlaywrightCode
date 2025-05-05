@@ -1,0 +1,83 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Hybrid Test: Login with admin@ajensia.com and access Employee Management
+- Location: C:\Users\Kowsikan\Automation\tests\Ajensia\HybridFramework\Just.spec.js:8:7
+
+# Error details
+
+```
+TimeoutError: page.goto: Timeout 20000ms exceeded.
+Call log:
+  - navigating to "https://testajensiacloud.carifer.com/login", waiting until "load"
+
+    at C:\Users\Kowsikan\Automation\tests\Ajensia\HybridFramework\Just.spec.js:10:16
+```
+
+# Page snapshot
+
+```yaml
+- img
+- link "AJENSIA"
+- paragraph
+- heading "Welcome" [level=5]
+- paragraph: Sign in to continue to Ajensia.
+- text: Username *
+- textbox "Username *": admin@Ajensia.com
+- link "Forgot password?"
+- text: Password *
+- textbox "Password *": "12345678"
+- button ""
+- checkbox "Remember me"
+- text: Remember me
+- button "Sign In"
+- paragraph:
+  - text: Don't have an account ?
+  - link "Signup"
+- contentinfo:
+  - paragraph: ©
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { readExcel } from '../../DataDriven/readExcel';
+   3 | import { EmployeePage } from '../../POMFramework/EmployeeManagement';
+   4 |
+   5 | const loginData = readExcel();
+   6 |
+   7 | loginData.forEach(({ Username, Password }) => {
+   8 |   test(`Hybrid Test: Login with ${Username} and access Employee Management`, async ({ page }) => {
+   9 |     // Login (Data-Driven)
+> 10 |     await page.goto('https://testajensiacloud.carifer.com/login');
+     |                ^ TimeoutError: page.goto: Timeout 20000ms exceeded.
+  11 |     await page.getByRole('textbox', { name: 'Username *' }).fill(Username);
+  12 |     
+  13 |     
+  14 |     await page.getByRole('textbox', { name: 'Password *' }).fill(Password);
+  15 |     await page.getByRole('button', { name: 'Sign In' }).click();
+  16 |
+  17 |     await page.getByRole('button', { name: 'Close' }).click();
+  18 |
+  19 |     await page.waitForTimeout(3000); 
+  20 |     // Employee Management (POM)l
+  21 |     const empPage = new EmployeePage(page);
+  22 |     await empPage.navigateToEmployeeManagement(); 
+  23 |     await page.waitForTimeout(2000); 
+  24 |
+  25 |     await empPage.selectDepartment('8');
+  26 |     await page.waitForTimeout(2000); 
+  27 |
+  28 |     await empPage.clearDepartmentSelection();
+  29 |     await page.waitForTimeout(2000); 
+  30 |
+  31 |   });
+  32 | });
+  33 |
+```
