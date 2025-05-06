@@ -1,0 +1,268 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: test
+- Location: C:\Users\Kowsikan\Automation\tests\Ajensia\AssetManagement\AddVender.spec.js:4:5
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: ' Asset Management 󰅂' })
+    - locator resolved to <a role="button" href="#assetMgmt" aria-expanded="false" data-bs-toggle="collapse" aria-controls="assetMgmt" class="nav-link menu-link collapsed">…</a>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="offcanvas-backdrop fade show"></div> intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class="offcanvas-backdrop fade show"></div> intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    15 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class="offcanvas-backdrop fade show"></div> intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+
+    at C:\Users\Kowsikan\Automation\tests\Ajensia\AssetManagement\AddVender.spec.js:8:69
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - button
+  - textbox "Search..."
+  - text: 󰍉
+  - button "Header Language":
+    - img "Header Language"
+  - button ""
+  - button ""
+  - button " 3 unread messages"
+  - button "Header Avatar Admin Admin":
+    - img "Header Avatar"
+    - text: Admin Admin
+- link "AJENSIA"
+- region "scrollable content":
+  - list:
+    - region "scrollable content":
+      - listitem: Menu
+      - listitem:
+        - button " Dashboards 󰅂"
+      - listitem:
+        - button " Employee Management 󰅂"
+      - listitem:
+        - button " Salary Management 󰅂"
+      - listitem:
+        - button " Payslip Management 󰅂"
+      - listitem:
+        - button " Asset Management 󰅂"
+      - listitem:
+        - button " Master 󰅂"
+      - listitem:
+        - button " Approvals 󰅂"
+      - listitem:
+        - button " Settings 󰅂"
+      - listitem:
+        - button " Salary Structure 󰅂"
+      - listitem:
+        - button " Job Recuritment 󰅂"
+      - listitem:
+        - link " Candidate"
+- heading "Good Morning" [level=4]
+- paragraph: Welcome to Ajensia
+- contentinfo: 2025 © Ajensia. All Rights Reserved
+- text: 󰢻
+- heading "Theme Customizer" [level=5]
+- button "Close"
+- region "scrollable content":
+  - heading "Layout" [level=6]
+  - paragraph: Choose your layout
+  - text: 
+  - heading "Vertical" [level=5]
+  - heading "Horizontal" [level=5]
+  - heading "Two Column" [level=5]
+  - heading "Semi Box" [level=5]
+  - heading "Color Scheme" [level=6]
+  - paragraph: Choose Light or Dark Scheme.
+  - text: 
+  - heading "Light" [level=5]
+  - heading "Dark" [level=5]
+  - heading "Layout Width" [level=6]
+  - paragraph: Choose Fluid or Boxed layout.
+  - text: 
+  - heading "Fluid" [level=5]
+  - heading "Boxed" [level=5]
+  - heading "Layout Position" [level=6]
+  - paragraph: Choose Fixed or Scrollable Layout Position.
+  - group:
+    - radio "Fixed" [checked]
+    - text: Fixed
+    - radio "Scrollable"
+    - text: Scrollable
+  - heading "Topbar Color" [level=6]
+  - paragraph: Choose Light or Dark Topbar Color.
+  - text: 
+  - heading "Light" [level=5]
+  - heading "Dark" [level=5]
+  - heading "Sidebar Size" [level=6]
+  - paragraph: Choose a size of Sidebar.
+  - text: 
+  - heading "Default" [level=5]
+  - heading "Compact" [level=5]
+  - heading "Small (Icon View)" [level=5]
+  - heading "Small Hover View" [level=5]
+  - heading "Sidebar View" [level=6]
+  - paragraph: Choose Default or Detached Sidebar view.
+  - text: 
+  - heading "Default" [level=5]
+  - heading "Detached" [level=5]
+  - heading "Sidebar Color" [level=6]
+  - paragraph: Choose a color of Sidebar.
+  - heading "Light" [level=5]
+  - text: 
+  - heading "Dark" [level=5]
+  - button
+  - heading "Gradient" [level=5]
+  - heading "Sidebar Images" [level=6]
+  - paragraph: Choose a image of Sidebar.
+  - text:  
+  - heading "Preloader" [level=6]
+  - paragraph: Choose a preloader.
+  - status: Loading...
+  - heading "Enable" [level=5]
+  - text: 
+  - heading "Disable" [level=5]
+- button "Reset"
+- button "Preview"
+- img
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { login } from '../../ProjectLogin/AjensiaLogin';
+   3 |
+   4 | test('test', async ({ page }) => {
+   5 |
+   6 |     await login(page);
+   7 |   
+>  8 |   await page.getByRole('button', { name: ' Asset Management 󰅂' }).click();
+     |                                                                     ^ TimeoutError: locator.click: Timeout 10000ms exceeded.
+   9 |   await page.waitForTimeout(2000);
+   10 |
+   11 |   await page.getByRole('link', { name: 'Vendor', exact: true }).click();
+   12 |   await page.waitForTimeout(2000);
+   13 |
+   14 |   await page.getByRole('link', { name: 'Add New Vendor' }).click();
+   15 |   await page.waitForTimeout(5000);
+   16 |
+   17 |   await page.getByRole('textbox', { name: 'Enter Vendor Name' }).click();
+   18 |   await page.waitForTimeout(2000);
+   19 |
+   20 |   await page.getByRole('textbox', { name: 'Enter Vendor Name' }).fill('Alex');
+   21 |   await page.waitForTimeout(2000);
+   22 |
+   23 |   await page.locator('#vendorTypeDropdown').selectOption('6');
+   24 |   await page.waitForTimeout(2000);
+   25 |
+   26 |   await page.getByRole('textbox', { name: 'Service Provided' }).click();
+   27 |   await page.waitForTimeout(2000);
+   28 |
+   29 |   await page.getByRole('textbox', { name: 'Service Provided' }).fill('Mechanic');
+   30 |   await page.waitForTimeout(2000);
+   31 |
+   32 |   await page.getByRole('textbox', { name: 'Company Website' }).click();
+   33 |   await page.waitForTimeout(2000);
+   34 |
+   35 |   await page.getByRole('textbox', { name: 'Company Website' }).fill('https://google.com');
+   36 |   await page.waitForTimeout(4000);
+   37 |
+   38 |   await page.getByLabel('Country').selectOption('101');
+   39 |   await page.waitForTimeout(4000);
+   40 |
+   41 |   await page.getByLabel('State').selectOption('4035');
+   42 |   await page.waitForTimeout(4000);
+   43 |
+   44 |   await page.getByLabel('City').selectOption('132821');
+   45 |   await page.waitForTimeout(2000);
+   46 |
+   47 |   await page.getByRole('textbox', { name: 'Enter the Address' }).click();
+   48 |   await page.waitForTimeout(2000);
+   49 |
+   50 |   await page.getByRole('textbox', { name: 'Enter the Address' }).fill('Simmakkal');
+   51 |   await page.waitForTimeout(2000);
+   52 |
+   53 |   await page.getByRole('button', { name: ' Go to Contact Info' }).click();
+   54 |   await page.waitForTimeout(2000);
+   55 |
+   56 |   await page.getByRole('textbox', { name: 'Person Name' }).click();
+   57 |   await page.waitForTimeout(2000);
+   58 |
+   59 |   await page.getByRole('textbox', { name: 'Person Name' }).fill('Starc');
+   60 |   await page.waitForTimeout(2000);
+   61 |
+   62 |   await page.getByRole('textbox', { name: 'Designation' }).click();
+   63 |   await page.waitForTimeout(2000);
+   64 |
+   65 |   await page.getByRole('textbox', { name: 'Designation' }).fill('AC');
+   66 |   await page.waitForTimeout(2000);
+   67 |
+   68 |   await page.getByRole('textbox', { name: 'Email Address' }).click();
+   69 |   await page.waitForTimeout(2000);
+   70 |
+   71 |   await page.getByRole('textbox', { name: 'Email Address' }).fill('satrc@gmail.com');
+   72 |   await page.waitForTimeout(2000);
+   73 |
+   74 |   await page.getByRole('spinbutton', { name: 'Phone Number', exact: true }).click();
+   75 |   await page.waitForTimeout(2000);
+   76 |
+   77 |   await page.getByRole('spinbutton', { name: 'Phone Number', exact: true }).fill('8456974123');
+   78 |   await page.waitForTimeout(2000);
+   79 |
+   80 |   await page.getByRole('button', { name: ' Go to Financial Info' }).click();
+   81 |   await page.waitForTimeout(2000);
+   82 |
+   83 |   await page.getByRole('textbox', { name: 'Enter Bank Name' }).click();
+   84 |   await page.waitForTimeout(2000);
+   85 |
+   86 |   await page.getByRole('textbox', { name: 'Enter Bank Name' }).fill('Bank of baroda');
+   87 |   await page.waitForTimeout(2000);
+   88 |
+   89 |   await page.getByRole('spinbutton', { name: 'Account Number' }).click();
+   90 |   await page.waitForTimeout(2000);
+   91 |
+   92 |   await page.getByRole('spinbutton', { name: 'Account Number' }).fill('1112490010005453');
+   93 |   await page.waitForTimeout(2000);
+   94 |
+   95 |   await page.getByRole('textbox', { name: 'IFSC Code' }).click();
+   96 |   await page.waitForTimeout(2000);
+   97 |
+   98 |   await page.getByRole('textbox', { name: 'IFSC Code' }).click();
+   99 |   await page.waitForTimeout(2000);
+  100 |
+  101 |   await page.getByRole('textbox', { name: 'IFSC Code' }).fill('KVBL0001120');
+  102 |   await page.waitForTimeout(2000);
+  103 |
+  104 |   await page.getByRole('combobox').selectOption('2');
+  105 |   await page.waitForTimeout(2000);
+  106 |
+  107 |   await page.getByRole('button', { name: ' Go to Additional Info' }).click();
+  108 |   await page.waitForTimeout(2000);
+```

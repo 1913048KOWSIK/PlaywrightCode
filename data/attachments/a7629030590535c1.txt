@@ -1,0 +1,903 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: test
+- Location: C:\Users\Kowsikan\Automation\tests\Ajensia\AssetManagement\AddVender.spec.js:4:5
+
+# Error details
+
+```
+TimeoutError: locator.click: Timeout 10000ms exceeded.
+Call log:
+  - waiting for getByRole('textbox', { name: 'Person Name' })
+
+    at C:\Users\Kowsikan\Automation\tests\Ajensia\AssetManagement\AddVender.spec.js:58:60
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - button
+  - textbox "Search..."
+  - text: 󰍉
+  - button "Header Language":
+    - img "Header Language"
+  - button ""
+  - button ""
+  - button " 3 unread messages"
+  - button "Header Avatar Admin Admin":
+    - img "Header Avatar"
+    - text: Admin Admin
+- link "AJENSIA"
+- region "scrollable content":
+  - list:
+    - region "scrollable content":
+      - listitem: Menu
+      - listitem:
+        - button " Dashboards 󰅂"
+      - listitem:
+        - button " Employee Management 󰅂"
+      - listitem:
+        - button " Salary Management 󰅂"
+      - listitem:
+        - button " Payslip Management 󰅂"
+      - listitem:
+        - button " Asset Management 󰅂"
+      - listitem:
+        - button " Master 󰅂"
+      - listitem:
+        - button " Approvals 󰅂"
+      - listitem:
+        - button " Settings 󰅂"
+      - listitem:
+        - button " Salary Structure 󰅂"
+      - listitem:
+        - button " Job Recuritment 󰅂"
+      - listitem:
+        - link " Candidate"
+- heading "Add Vendor" [level=4]
+- list:
+  - listitem:
+    - link "Vendor"
+  - listitem: 󰅂 Add Vendor
+- heading "Create Vendor" [level=4]
+- tablist:
+  - tab "Vendor Info" [selected]
+  - button "Contact Info" [disabled]
+  - button "Financial Info" [disabled]
+  - button "Additional Info" [disabled]
+- tabpanel "Vendor Info":
+  - text: Vendor ID
+  - textbox [disabled]
+  - text: Vendor Name
+  - textbox "Enter Vendor Name": Alex
+  - text: The vendor name is already taken. Please choose another one. Vendor Type
+  - combobox:
+    - option "Select Vendor Type"
+    - option "Manufacturer"
+    - option "Retailer"
+    - option "Service Provider"
+    - option "Wholesalers"
+    - option "External vendors" [selected]
+    - option "AC Mechanic"
+  - text: Service Provided
+  - textbox "Service Provided": Mechanic
+  - text: Company Website
+  - textbox "Company Website": https://google.com
+  - text: Tax Id
+  - textbox "Tax Id"
+  - text: Country
+  - combobox "Country":
+    - option "select"
+    - option "Afghanistan"
+    - option "Aland Islands"
+    - option "Albania"
+    - option "Algeria"
+    - option "American Samoa"
+    - option "Andorra"
+    - option "Angola"
+    - option "Anguilla"
+    - option "Antarctica"
+    - option "Antigua and Barbuda"
+    - option "Argentina"
+    - option "Armenia"
+    - option "Aruba"
+    - option "Australia"
+    - option "Austria"
+    - option "Azerbaijan"
+    - option "Bahrain"
+    - option "Bangladesh"
+    - option "Barbados"
+    - option "Belarus"
+    - option "Belgium"
+    - option "Belize"
+    - option "Benin"
+    - option "Bermuda"
+    - option "Bhutan"
+    - option "Bolivia"
+    - option "Bonaire, Sint Eustatius and Saba"
+    - option "Bosnia and Herzegovina"
+    - option "Botswana"
+    - option "Bouvet Island"
+    - option "Brazil"
+    - option "British Indian Ocean Territory"
+    - option "Brunei"
+    - option "Bulgaria"
+    - option "Burkina Faso"
+    - option "Burundi"
+    - option "Cambodia"
+    - option "Cameroon"
+    - option "Canada"
+    - option "Cape Verde"
+    - option "Cayman Islands"
+    - option "Central African Republic"
+    - option "Chad"
+    - option "Chile"
+    - option "China"
+    - option "Christmas Island"
+    - option "Cocos (Keeling) Islands"
+    - option "Colombia"
+    - option "Comoros"
+    - option "Congo"
+    - option "Cook Islands"
+    - option "Costa Rica"
+    - option "Cote D'Ivoire (Ivory Coast)"
+    - option "Croatia"
+    - option "Cuba"
+    - option "Curaçao"
+    - option "Cyprus"
+    - option "Czech Republic"
+    - option "Democratic Republic of the Congo"
+    - option "Denmark"
+    - option "Djibouti"
+    - option "Dominica"
+    - option "Dominican Republic"
+    - option "Ecuador"
+    - option "Egypt"
+    - option "El Salvador"
+    - option "Equatorial Guinea"
+    - option "Eritrea"
+    - option "Estonia"
+    - option "Eswatini"
+    - option "Ethiopia"
+    - option "Falkland Islands"
+    - option "Faroe Islands"
+    - option "Fiji Islands"
+    - option "Finland"
+    - option "France"
+    - option "French Guiana"
+    - option "French Polynesia"
+    - option "French Southern Territories"
+    - option "Gabon"
+    - option "Georgia"
+    - option "Germany"
+    - option "Ghana"
+    - option "Gibraltar"
+    - option "Greece"
+    - option "Greenland"
+    - option "Grenada"
+    - option "Guadeloupe"
+    - option "Guam"
+    - option "Guatemala"
+    - option "Guernsey and Alderney"
+    - option "Guinea"
+    - option "Guinea-Bissau"
+    - option "Guyana"
+    - option "Haiti"
+    - option "Heard Island and McDonald Islands"
+    - option "Honduras"
+    - option "Hong Kong S.A.R."
+    - option "Hungary"
+    - option "Iceland"
+    - option "India" [selected]
+    - option "Indonesia"
+    - option "Iran"
+    - option "Iraq"
+    - option "Ireland"
+    - option "Israel"
+    - option "Italy"
+    - option "Jamaica"
+    - option "Japan"
+    - option "Jersey"
+    - option "Jordan"
+    - option "Kazakhstan"
+    - option "Kenya"
+    - option "Kiribati"
+    - option "Kosovo"
+    - option "Kuwait"
+    - option "Kyrgyzstan"
+    - option "Laos"
+    - option "Latvia"
+    - option "Lebanon"
+    - option "Lesotho"
+    - option "Liberia"
+    - option "Libya"
+    - option "Liechtenstein"
+    - option "Lithuania"
+    - option "Luxembourg"
+    - option "Macau S.A.R."
+    - option "Madagascar"
+    - option "Malawi"
+    - option "Malaysia"
+    - option "Maldives"
+    - option "Mali"
+    - option "Malta"
+    - option "Man (Isle of)"
+    - option "Marshall Islands"
+    - option "Martinique"
+    - option "Mauritania"
+    - option "Mauritius"
+    - option "Mayotte"
+    - option "Mexico"
+    - option "Micronesia"
+    - option "Moldova"
+    - option "Monaco"
+    - option "Mongolia"
+    - option "Montenegro"
+    - option "Montserrat"
+    - option "Morocco"
+    - option "Mozambique"
+    - option "Myanmar"
+    - option "Namibia"
+    - option "Nauru"
+    - option "Nepal"
+    - option "Netherlands"
+    - option "New Caledonia"
+    - option "New Zealand"
+    - option "Nicaragua"
+    - option "Niger"
+    - option "Nigeria"
+    - option "Niue"
+    - option "Norfolk Island"
+    - option "North Korea"
+    - option "North Macedonia"
+    - option "Northern Mariana Islands"
+    - option "Norway"
+    - option "Oman"
+    - option "Pakistan"
+    - option "Palau"
+    - option "Palestinian Territory Occupied"
+    - option "Panama"
+    - option "Papua New Guinea"
+    - option "Paraguay"
+    - option "Peru"
+    - option "Philippines"
+    - option "Pitcairn Island"
+    - option "Poland"
+    - option "Portugal"
+    - option "Puerto Rico"
+    - option "Qatar"
+    - option "Reunion"
+    - option "Romania"
+    - option "Russia"
+    - option "Rwanda"
+    - option "Saint Helena"
+    - option "Saint Kitts and Nevis"
+    - option "Saint Lucia"
+    - option "Saint Pierre and Miquelon"
+    - option "Saint Vincent and the Grenadines"
+    - option "Saint-Barthelemy"
+    - option "Saint-Martin (French part)"
+    - option "Samoa"
+    - option "San Marino"
+    - option "Sao Tome and Principe"
+    - option "Saudi Arabia"
+    - option "Senegal"
+    - option "Serbia"
+    - option "Seychelles"
+    - option "Sierra Leone"
+    - option "Singapore"
+    - option "Sint Maarten (Dutch part)"
+    - option "Slovakia"
+    - option "Slovenia"
+    - option "Solomon Islands"
+    - option "Somalia"
+    - option "South Africa"
+    - option "South Georgia"
+    - option "South Korea"
+    - option "South Sudan"
+    - option "Spain"
+    - option "Sri Lanka"
+    - option "Sudan"
+    - option "Suriname"
+    - option "Svalbard and Jan Mayen Islands"
+    - option "Sweden"
+    - option "Switzerland"
+    - option "Syria"
+    - option "Taiwan"
+    - option "Tajikistan"
+    - option "Tanzania"
+    - option "Thailand"
+    - option "The Bahamas"
+    - option "The Gambia"
+    - option "Timor-Leste"
+    - option "Togo"
+    - option "Tokelau"
+    - option "Tonga"
+    - option "Trinidad and Tobago"
+    - option "Tunisia"
+    - option "Turkey"
+    - option "Turkmenistan"
+    - option "Turks and Caicos Islands"
+    - option "Tuvalu"
+    - option "Uganda"
+    - option "Ukraine"
+    - option "United Arab Emirates"
+    - option "United Kingdom"
+    - option "United States"
+    - option "United States Minor Outlying Islands"
+    - option "Uruguay"
+    - option "Uzbekistan"
+    - option "Vanuatu"
+    - option "Vatican City State (Holy See)"
+    - option "Venezuela"
+    - option "Vietnam"
+    - option "Virgin Islands (British)"
+    - option "Virgin Islands (US)"
+    - option "Wallis and Futuna Islands"
+    - option "Western Sahara"
+    - option "Yemen"
+    - option "Zambia"
+    - option "Zimbabwe"
+  - text: State
+  - combobox "State":
+    - option "select"
+    - option "Andaman and Nicobar Islands"
+    - option "Andhra Pradesh"
+    - option "Arunachal Pradesh"
+    - option "Assam"
+    - option "Bihar"
+    - option "Chandigarh"
+    - option "Chhattisgarh"
+    - option "Dadra and Nagar Haveli and Daman and Diu"
+    - option "Delhi"
+    - option "Goa"
+    - option "Gujarat"
+    - option "Haryana"
+    - option "Himachal Pradesh"
+    - option "Jammu and Kashmir"
+    - option "Jharkhand"
+    - option "Karnataka"
+    - option "Kerala"
+    - option "Ladakh"
+    - option "Lakshadweep"
+    - option "Madhya Pradesh"
+    - option "Maharashtra"
+    - option "Manipur"
+    - option "Meghalaya"
+    - option "Mizoram"
+    - option "Nagaland"
+    - option "Odisha"
+    - option "Puducherry"
+    - option "Punjab"
+    - option "Rajasthan"
+    - option "Sikkim"
+    - option "Tamil Nadu" [selected]
+    - option "Telangana"
+    - option "Tripura"
+    - option "Uttar Pradesh"
+    - option "Uttarakhand"
+    - option "West Bengal"
+  - text: City
+  - combobox "City":
+    - option "select"
+    - option "Abiramam"
+    - option "Adirampattinam"
+    - option "Aduthurai"
+    - option "Alagapuram"
+    - option "Alandur"
+    - option "Alanganallur"
+    - option "Alangayam"
+    - option "Alangudi"
+    - option "Alangulam"
+    - option "Alappakkam"
+    - option "Alwa Tirunagari"
+    - option "Ambasamudram"
+    - option "Ambattur"
+    - option "Ambur"
+    - option "Ammapettai"
+    - option "Anamalais"
+    - option "Andippatti"
+    - option "Annamalainagar"
+    - option "Annavasal"
+    - option "Annur"
+    - option "Anthiyur"
+    - option "Arakkonam"
+    - option "Arantangi"
+    - option "Arcot"
+    - option "Arimalam"
+    - option "Ariyalur"
+    - option "Arni"
+    - option "Arumbavur"
+    - option "Arumuganeri"
+    - option "Aruppukkottai"
+    - option "Aruvankad"
+    - option "Attayyampatti"
+    - option "Attur"
+    - option "Auroville"
+    - option "Avadi"
+    - option "Avinashi"
+    - option "Ayakudi"
+    - option "Ayyampettai"
+    - option "Belur"
+    - option "Bhavani"
+    - option "Bodinayakkanur"
+    - option "Chengam"
+    - option "Chennai"
+    - option "Chennimalai"
+    - option "Chetput"
+    - option "Chettipalaiyam"
+    - option "Cheyyar"
+    - option "Cheyyur"
+    - option "Chidambaram"
+    - option "Chingleput"
+    - option "Chinna Salem"
+    - option "Chinnamanur"
+    - option "Chinnasekkadu"
+    - option "Cholapuram"
+    - option "Coimbatore"
+    - option "Colachel"
+    - option "Cuddalore"
+    - option "Cumbum"
+    - option "Denkanikota"
+    - option "Desur"
+    - option "Devadanappatti"
+    - option "Devakottai"
+    - option "Dhali"
+    - option "Dharapuram"
+    - option "Dharmapuri"
+    - option "Dindigul"
+    - option "Dusi"
+    - option "Elayirampannai"
+    - option "Elumalai"
+    - option "Eral"
+    - option "Eraniel"
+    - option "Erode"
+    - option "Erumaippatti"
+    - option "Ettaiyapuram"
+    - option "Gandhi Nagar"
+    - option "Gangaikondan"
+    - option "Gangavalli"
+    - option "Gingee"
+    - option "Gobichettipalayam"
+    - option "Gudalur"
+    - option "Gudiyatham"
+    - option "Guduvancheri"
+    - option "Gummidipundi"
+    - option "Harur"
+    - option "Hosur"
+    - option "Idappadi"
+    - option "Ilampillai"
+    - option "Iluppur"
+    - option "Injambakkam"
+    - option "Irugur"
+    - option "Jalakandapuram"
+    - option "Jalarpet"
+    - option "Jayamkondacholapuram"
+    - option "Kadambur"
+    - option "Kadayanallur"
+    - option "Kalakkadu"
+    - option "Kalavai"
+    - option "Kallakkurichchi"
+    - option "Kallidaikurichi"
+    - option "Kallupatti"
+    - option "Kalugumalai"
+    - option "Kamuthi"
+    - option "Kanadukattan"
+    - option "Kancheepuram"
+    - option "Kanchipuram"
+    - option "Kangayam"
+    - option "Kanniyakumari"
+    - option "Karaikkudi"
+    - option "Karamadai"
+    - option "Karambakkudi"
+    - option "Kariapatti"
+    - option "Karumbakkam"
+    - option "Karur"
+    - option "Katpadi"
+    - option "Kattivakkam"
+    - option "Kattupputtur"
+    - option "Kaveripatnam"
+    - option "Kayalpattinam"
+    - option "Kayattar"
+    - option "Keelakarai"
+    - option "Kelamangalam"
+    - option "Kil Bhuvanagiri"
+    - option "Kilvelur"
+    - option "Kiranur"
+    - option "Kodaikanal"
+    - option "Kodumudi"
+    - option "Kombai"
+    - option "Konganapuram"
+    - option "Koothanallur"
+    - option "Koradachcheri"
+    - option "Korampallam"
+    - option "Kotagiri"
+    - option "Kottaiyur"
+    - option "Kovilpatti"
+    - option "Krishnagiri"
+    - option "Kulattur"
+    - option "Kulittalai"
+    - option "Kumaralingam"
+    - option "Kumbakonam"
+    - option "Kunnattur"
+    - option "Kurinjippadi"
+    - option "Kuttalam"
+    - option "Kuzhithurai"
+    - option "Lalgudi"
+    - option "Madambakkam"
+    - option "Madipakkam"
+    - option "Madukkarai"
+    - option "Madukkur"
+    - option "Madurai" [selected]
+    - option "Madurantakam"
+    - option "Mallapuram"
+    - option "Mallasamudram"
+    - option "Mallur"
+    - option "Manali"
+    - option "Manalurpettai"
+    - option "Manamadurai"
+    - option "Manappakkam"
+    - option "Manapparai"
+    - option "Manavalakurichi"
+    - option "Mandapam"
+    - option "Mangalam"
+    - option "Mannargudi"
+    - option "Marakkanam"
+    - option "Marandahalli"
+    - option "Masinigudi"
+    - option "Mattur"
+    - option "Mayiladuthurai"
+    - option "Melur"
+    - option "Mettuppalaiyam"
+    - option "Mettur"
+    - option "Minjur"
+    - option "Mohanur"
+    - option "Mudukulattur"
+    - option "Mulanur"
+    - option "Musiri"
+    - option "Muttupet"
+    - option "Naduvattam"
+    - option "Nagapattinam"
+    - option "Nagercoil"
+    - option "Namagiripettai"
+    - option "Namakkal"
+    - option "Nambiyur"
+    - option "Nambutalai"
+    - option "Nandambakkam"
+    - option "Nangavalli"
+    - option "Nangilickondan"
+    - option "Nanguneri"
+    - option "Nannilam"
+    - option "Naravarikuppam"
+    - option "Nattam"
+    - option "Nattarasankottai"
+    - option "Needamangalam"
+    - option "Neelankarai"
+    - option "Negapatam"
+    - option "Nellikkuppam"
+    - option "Nilakottai"
+    - option "Nilgiris"
+    - option "Odugattur"
+    - option "Omalur"
+    - option "Ooty"
+    - option "Padmanabhapuram"
+    - option "Palakkodu"
+    - option "Palamedu"
+    - option "Palani"
+    - option "Palavakkam"
+    - option "Palladam"
+    - option "Pallappatti"
+    - option "Pallattur"
+    - option "Pallavaram"
+    - option "Pallikondai"
+    - option "Pallipattu"
+    - option "Pallippatti"
+    - option "Panruti"
+    - option "Papanasam"
+    - option "Papireddippatti"
+    - option "Papparappatti"
+    - option "Paramagudi"
+    - option "Pattukkottai"
+    - option "Pennadam"
+    - option "Pennagaram"
+    - option "Pennathur"
+    - option "Peraiyur"
+    - option "Perambalur"
+    - option "Peranamallur"
+    - option "Peranampattu"
+    - option "Peravurani"
+    - option "Periyakulam"
+    - option "Periyanayakkanpalaiyam"
+    - option "Periyanegamam"
+    - option "Periyapatti"
+    - option "Periyapattinam"
+    - option "Perundurai"
+    - option "Perungudi"
+    - option "Perur"
+    - option "Pollachi"
+    - option "Polur"
+    - option "Ponnamaravati"
+    - option "Ponneri"
+    - option "Poonamalle"
+    - option "Porur"
+    - option "Pudukkottai"
+    - option "Puduppatti"
+    - option "Pudur"
+    - option "Puduvayal"
+    - option "Puliyangudi"
+    - option "Puliyur"
+    - option "Pullambadi"
+    - option "Punjai Puliyampatti"
+    - option "Rajapalaiyam"
+    - option "Ramanathapuram"
+    - option "Rameswaram"
+    - option "Ranipet"
+    - option "Rasipuram"
+    - option "Saint Thomas Mount"
+    - option "Salem"
+    - option "Sathankulam"
+    - option "Sathyamangalam"
+    - option "Sattur"
+    - option "Sayalkudi"
+    - option "Seven Pagodas"
+    - option "Sholinghur"
+    - option "Singanallur"
+    - option "Singapperumalkovil"
+    - option "Sirkazhi"
+    - option "Sirumugai"
+    - option "Sivaganga"
+    - option "Sivagiri"
+    - option "Sivakasi"
+    - option "Srimushnam"
+    - option "Sriperumbudur"
+    - option "Srivaikuntam"
+    - option "Srivilliputhur"
+    - option "Suchindram"
+    - option "Sulur"
+    - option "Surandai"
+    - option "Swamimalai"
+    - option "Tambaram"
+    - option "Tanjore"
+    - option "Taramangalam"
+    - option "Tattayyangarpettai"
+    - option "Thanjavur"
+    - option "Tharangambadi"
+    - option "Theni"
+    - option "Thenkasi"
+    - option "Thirukattupalli"
+    - option "Thiruthani"
+    - option "Thiruvaiyaru"
+    - option "Thiruvallur"
+    - option "Thiruvarur"
+    - option "Thiruvidaimaruthur"
+    - option "Thoothukudi"
+    - option "Tindivanam"
+    - option "Tinnanur"
+    - option "Tiruchchendur"
+    - option "Tiruchengode"
+    - option "Tiruchirappalli"
+    - option "Tirukkoyilur"
+    - option "Tirumullaivasal"
+    - option "Tirunelveli"
+    - option "Tirunelveli Kattabo"
+    - option "Tiruppalaikudi"
+    - option "Tirupparangunram"
+    - option "Tiruppur"
+    - option "Tiruppuvanam"
+    - option "Tiruttangal"
+    - option "Tiruvannamalai"
+    - option "Tiruvottiyur"
+    - option "Tisaiyanvilai"
+    - option "Tondi"
+    - option "Turaiyur"
+    - option "Udangudi"
+    - option "Udumalaippettai"
+    - option "Uppiliyapuram"
+    - option "Usilampatti"
+    - option "Uttamapalaiyam"
+    - option "Uttiramerur"
+    - option "Uttukkuli"
+    - option "V.S.K.Valasai (Dindigul-Dist.)"
+    - option "Vadakku Valliyur"
+    - option "Vadakku Viravanallur"
+    - option "Vadamadurai"
+    - option "Vadippatti"
+    - option "Valangaiman"
+    - option "Valavanur"
+    - option "Vallam"
+    - option "Valparai"
+    - option "Vandalur"
+    - option "Vandavasi"
+    - option "Vaniyambadi"
+    - option "Vasudevanallur"
+    - option "Vattalkundu"
+    - option "Vedaraniyam"
+    - option "Vedasandur"
+    - option "Velankanni"
+    - option "Vellanur"
+    - option "Vellore"
+    - option "Velur"
+    - option "Vengavasal"
+    - option "Vettaikkaranpudur"
+    - option "Vettavalam"
+    - option "Vijayapuri"
+    - option "Vikravandi"
+    - option "Vilattikulam"
+    - option "Villupuram"
+    - option "Viraganur"
+    - option "Virudhunagar"
+    - option "Vriddhachalam"
+    - option "Walajapet"
+    - option "Wallajahbad"
+    - option "Wellington"
+  - text: Address
+  - textbox "Enter the Address": Simmakkal
+  - button " Go to Contact Info"
+- contentinfo: 2025 © Ajensia. All Rights Reserved
+- text: 󰢻
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { login } from '../../ProjectLogin/AjensiaLogin';
+   3 |
+   4 | test('test', async ({ page }) => {
+   5 |
+   6 |     await login(page);
+   7 |   
+   8 |     await page.waitForTimeout(2000);
+   9 |
+   10 |   await page.getByRole('button', { name: ' Asset Management 󰅂' }).click();
+   11 |   await page.waitForTimeout(2000);
+   12 |
+   13 |   await page.getByRole('link', { name: 'Vendor', exact: true }).click();
+   14 |   await page.waitForTimeout(2000);
+   15 |
+   16 |   await page.getByRole('link', { name: 'Add New Vendor' }).click();
+   17 |   await page.waitForTimeout(5000);
+   18 |
+   19 |   await page.getByRole('textbox', { name: 'Enter Vendor Name' }).click();
+   20 |   await page.waitForTimeout(2000);
+   21 |
+   22 |   await page.getByRole('textbox', { name: 'Enter Vendor Name' }).fill('Alex');
+   23 |   await page.waitForTimeout(2000);
+   24 |
+   25 |   await page.locator('#vendorTypeDropdown').selectOption('6');
+   26 |   await page.waitForTimeout(2000);
+   27 |
+   28 |   await page.getByRole('textbox', { name: 'Service Provided' }).click();
+   29 |   await page.waitForTimeout(2000);
+   30 |
+   31 |   await page.getByRole('textbox', { name: 'Service Provided' }).fill('Mechanic');
+   32 |   await page.waitForTimeout(2000);
+   33 |
+   34 |   await page.getByRole('textbox', { name: 'Company Website' }).click();
+   35 |   await page.waitForTimeout(2000);
+   36 |
+   37 |   await page.getByRole('textbox', { name: 'Company Website' }).fill('https://google.com');
+   38 |   await page.waitForTimeout(4000);
+   39 |
+   40 |   await page.getByLabel('Country').selectOption('101');
+   41 |   await page.waitForTimeout(4000);
+   42 |
+   43 |   await page.getByLabel('State').selectOption('4035');
+   44 |   await page.waitForTimeout(4000);
+   45 |
+   46 |   await page.getByLabel('City').selectOption('132821');
+   47 |   await page.waitForTimeout(2000);
+   48 |
+   49 |   await page.getByRole('textbox', { name: 'Enter the Address' }).click();
+   50 |   await page.waitForTimeout(2000);
+   51 |
+   52 |   await page.getByRole('textbox', { name: 'Enter the Address' }).fill('Simmakkal');
+   53 |   await page.waitForTimeout(2000);
+   54 |
+   55 |   await page.getByRole('button', { name: ' Go to Contact Info' }).click();
+   56 |   await page.waitForTimeout(2000);
+   57 |
+>  58 |   await page.getByRole('textbox', { name: 'Person Name' }).click();
+      |                                                            ^ TimeoutError: locator.click: Timeout 10000ms exceeded.
+   59 |   await page.waitForTimeout(2000);
+   60 |
+   61 |   await page.getByRole('textbox', { name: 'Person Name' }).fill('Starc');
+   62 |   await page.waitForTimeout(2000);
+   63 |
+   64 |   await page.getByRole('textbox', { name: 'Designation' }).click();
+   65 |   await page.waitForTimeout(2000);
+   66 |
+   67 |   await page.getByRole('textbox', { name: 'Designation' }).fill('AC');
+   68 |   await page.waitForTimeout(2000);
+   69 |
+   70 |   await page.getByRole('textbox', { name: 'Email Address' }).click();
+   71 |   await page.waitForTimeout(2000);
+   72 |
+   73 |   await page.getByRole('textbox', { name: 'Email Address' }).fill('satrc@gmail.com');
+   74 |   await page.waitForTimeout(2000);
+   75 |
+   76 |   await page.getByRole('spinbutton', { name: 'Phone Number', exact: true }).click();
+   77 |   await page.waitForTimeout(2000);
+   78 |
+   79 |   await page.getByRole('spinbutton', { name: 'Phone Number', exact: true }).fill('8456974123');
+   80 |   await page.waitForTimeout(2000);
+   81 |
+   82 |   await page.getByRole('button', { name: ' Go to Financial Info' }).click();
+   83 |   await page.waitForTimeout(2000);
+   84 |
+   85 |   await page.getByRole('textbox', { name: 'Enter Bank Name' }).click();
+   86 |   await page.waitForTimeout(2000);
+   87 |
+   88 |   await page.getByRole('textbox', { name: 'Enter Bank Name' }).fill('Bank of baroda');
+   89 |   await page.waitForTimeout(2000);
+   90 |
+   91 |   await page.getByRole('spinbutton', { name: 'Account Number' }).click();
+   92 |   await page.waitForTimeout(2000);
+   93 |
+   94 |   await page.getByRole('spinbutton', { name: 'Account Number' }).fill('1112490010005453');
+   95 |   await page.waitForTimeout(2000);
+   96 |
+   97 |   await page.getByRole('textbox', { name: 'IFSC Code' }).click();
+   98 |   await page.waitForTimeout(2000);
+   99 |
+  100 |   await page.getByRole('textbox', { name: 'IFSC Code' }).click();
+  101 |   await page.waitForTimeout(2000);
+  102 |
+  103 |   await page.getByRole('textbox', { name: 'IFSC Code' }).fill('KVBL0001120');
+  104 |   await page.waitForTimeout(2000);
+  105 |
+  106 |   await page.getByRole('combobox').selectOption('2');
+  107 |   await page.waitForTimeout(2000);
+  108 |
+  109 |   await page.getByRole('button', { name: ' Go to Additional Info' }).click();
+  110 |   await page.waitForTimeout(2000);
+  111 |
+  112 |   await page.getByRole('textbox', { name: 'Enter the Details' }).click();
+  113 |   await page.waitForTimeout(2000);
+  114 |
+  115 |   await page.getByRole('textbox', { name: 'Enter the Details' }).fill('Allocation');
+  116 |   await page.waitForTimeout(2000);
+  117 |
+  118 |   await page.getByRole('button', { name: ' Submit' }).click();
+  119 |   await page.waitForTimeout(2000);
+  120 |
+  121 |   await page.evaluate(() => {
+  122 |     window.scrollBy(0, 500); // Scroll down 500px
+  123 |   });
+  124 |   await page.waitForTimeout(2000);
+  125 |
+  126 |   await page.getByRole('button', { name: '2' }).click();
+  127 |   await page.waitForTimeout(2000);
+  128 |
+  129 |   await page.getByTitle('View Data').nth(2).click();
+  130 |   await page.waitForTimeout(2000);
+  131 |
+  132 |   await page.getByRole('tab', { name: 'Contact Info' }).click();
+  133 |   await page.waitForTimeout(2000);
+  134 |
+  135 |   await page.getByRole('tab', { name: 'Bank Info' }).click();
+  136 |   await page.waitForTimeout(2000);
+  137 |
+  138 |   await page.getByRole('tab', { name: 'Additional Info' }).click();
+  139 |   await page.waitForTimeout(2000);
+  140 |
+  141 |   await page.goBack();
+  142 |
+  143 | /*
+  144 |
+  145 | await page.waitForLoadState("domcontentloaded");
+  146 | await page.getByRole('row', { name: '3 Alex VEN_0015 str' }).getByRole('link').dblclick();
+  147 |   await page.waitForTimeout(2000);
+  148 |
+  149 |   await page.getByRole('button', { name: 'Delete' }).click();
+  150 |   await page.waitForTimeout(2000);
+  151 | */
+  152 | });
+```
