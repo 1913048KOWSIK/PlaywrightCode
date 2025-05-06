@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","25735","Salary","chromium","Tue May 06 14:33:53 IST 2025","passed","Tue May 06 14:34:19 IST 2025","","Ajensia\SalaryManagement\SalaryManagement.spec.js","",""
+"","43285","test","chromium","Tue May 06 17:16:09 IST 2025","failed","Tue May 06 17:16:53 IST 2025","","Ajensia\Approvals\ApprovalRequest.spec.js","",""
