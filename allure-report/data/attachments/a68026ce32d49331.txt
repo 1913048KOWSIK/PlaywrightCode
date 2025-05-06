@@ -1,0 +1,180 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: test
+- Location: C:\Users\Kowsikan\Automation\tests\Ajensia\AssetManagement\AddVender.spec.js:4:5
+
+# Error details
+
+```
+Error: locator.click: Target page, context or browser has been closed
+Call log:
+  - waiting for getByRole('textbox', { name: 'Person Name' })
+
+    at C:\Users\Kowsikan\Automation\tests\Ajensia\AssetManagement\AddVender.spec.js:58:60
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { login } from '../../ProjectLogin/AjensiaLogin';
+   3 |
+   4 | test('test', async ({ page }) => {
+   5 |
+   6 |     await login(page);
+   7 |   
+   8 |     await page.waitForTimeout(2000);
+   9 |
+   10 |   await page.getByRole('button', { name: ' Asset Management 󰅂' }).click();
+   11 |   await page.waitForTimeout(2000);
+   12 |
+   13 |   await page.getByRole('link', { name: 'Vendor', exact: true }).click();
+   14 |   await page.waitForTimeout(2000);
+   15 |
+   16 |   await page.getByRole('link', { name: 'Add New Vendor' }).click();
+   17 |   await page.waitForTimeout(5000);
+   18 |
+   19 |   await page.getByRole('textbox', { name: 'Enter Vendor Name' }).click();
+   20 |   await page.waitForTimeout(2000);
+   21 |
+   22 |   await page.getByRole('textbox', { name: 'Enter Vendor Name' }).fill('Alex');
+   23 |   await page.waitForTimeout(2000);
+   24 |
+   25 |   await page.locator('#vendorTypeDropdown').selectOption('6');
+   26 |   await page.waitForTimeout(2000);
+   27 |
+   28 |   await page.getByRole('textbox', { name: 'Service Provided' }).click();
+   29 |   await page.waitForTimeout(2000);
+   30 |
+   31 |   await page.getByRole('textbox', { name: 'Service Provided' }).fill('Mechanic');
+   32 |   await page.waitForTimeout(2000);
+   33 |
+   34 |   await page.getByRole('textbox', { name: 'Company Website' }).click();
+   35 |   await page.waitForTimeout(2000);
+   36 |
+   37 |   await page.getByRole('textbox', { name: 'Company Website' }).fill('https://google.com');
+   38 |   await page.waitForTimeout(4000);
+   39 |
+   40 |   await page.getByLabel('Country').selectOption('101');
+   41 |   await page.waitForTimeout(4000);
+   42 |
+   43 |   await page.getByLabel('State').selectOption('4035');
+   44 |   await page.waitForTimeout(4000);
+   45 |
+   46 |   await page.getByLabel('City').selectOption('132821');
+   47 |   await page.waitForTimeout(2000);
+   48 |
+   49 |   await page.getByRole('textbox', { name: 'Enter the Address' }).click();
+   50 |   await page.waitForTimeout(2000);
+   51 |
+   52 |   await page.getByRole('textbox', { name: 'Enter the Address' }).fill('Simmakkal');
+   53 |   await page.waitForTimeout(2000);
+   54 |
+   55 |   await page.getByRole('button', { name: ' Go to Contact Info' }).click();
+   56 |   await page.waitForTimeout(2000);
+   57 |
+>  58 |   await page.getByRole('textbox', { name: 'Person Name' }).click();
+      |                                                            ^ Error: locator.click: Target page, context or browser has been closed
+   59 |   await page.waitForTimeout(2000);
+   60 |
+   61 |   await page.getByRole('textbox', { name: 'Person Name' }).fill('Starc');
+   62 |   await page.waitForTimeout(2000);
+   63 |
+   64 |   await page.getByRole('textbox', { name: 'Designation' }).click();
+   65 |   await page.waitForTimeout(2000);
+   66 |
+   67 |   await page.getByRole('textbox', { name: 'Designation' }).fill('AC');
+   68 |   await page.waitForTimeout(2000);
+   69 |
+   70 |   await page.getByRole('textbox', { name: 'Email Address' }).click();
+   71 |   await page.waitForTimeout(2000);
+   72 |
+   73 |   await page.getByRole('textbox', { name: 'Email Address' }).fill('satrc@gmail.com');
+   74 |   await page.waitForTimeout(2000);
+   75 |
+   76 |   await page.getByRole('spinbutton', { name: 'Phone Number', exact: true }).click();
+   77 |   await page.waitForTimeout(2000);
+   78 |
+   79 |   await page.getByRole('spinbutton', { name: 'Phone Number', exact: true }).fill('8456974123');
+   80 |   await page.waitForTimeout(2000);
+   81 |
+   82 |   await page.getByRole('button', { name: ' Go to Financial Info' }).click();
+   83 |   await page.waitForTimeout(2000);
+   84 |
+   85 |   await page.getByRole('textbox', { name: 'Enter Bank Name' }).click();
+   86 |   await page.waitForTimeout(2000);
+   87 |
+   88 |   await page.getByRole('textbox', { name: 'Enter Bank Name' }).fill('Bank of baroda');
+   89 |   await page.waitForTimeout(2000);
+   90 |
+   91 |   await page.getByRole('spinbutton', { name: 'Account Number' }).click();
+   92 |   await page.waitForTimeout(2000);
+   93 |
+   94 |   await page.getByRole('spinbutton', { name: 'Account Number' }).fill('1112490010005453');
+   95 |   await page.waitForTimeout(2000);
+   96 |
+   97 |   await page.getByRole('textbox', { name: 'IFSC Code' }).click();
+   98 |   await page.waitForTimeout(2000);
+   99 |
+  100 |   await page.getByRole('textbox', { name: 'IFSC Code' }).click();
+  101 |   await page.waitForTimeout(2000);
+  102 |
+  103 |   await page.getByRole('textbox', { name: 'IFSC Code' }).fill('KVBL0001120');
+  104 |   await page.waitForTimeout(2000);
+  105 |
+  106 |   await page.getByRole('combobox').selectOption('2');
+  107 |   await page.waitForTimeout(2000);
+  108 |
+  109 |   await page.getByRole('button', { name: ' Go to Additional Info' }).click();
+  110 |   await page.waitForTimeout(2000);
+  111 |
+  112 |   await page.getByRole('textbox', { name: 'Enter the Details' }).click();
+  113 |   await page.waitForTimeout(2000);
+  114 |
+  115 |   await page.getByRole('textbox', { name: 'Enter the Details' }).fill('Allocation');
+  116 |   await page.waitForTimeout(2000);
+  117 |
+  118 |   await page.getByRole('button', { name: ' Submit' }).click();
+  119 |   await page.waitForTimeout(2000);
+  120 |
+  121 |   await page.evaluate(() => {
+  122 |     window.scrollBy(0, 500); // Scroll down 500px
+  123 |   });
+  124 |   await page.waitForTimeout(2000);
+  125 |
+  126 |
+  127 |
+  128 |   await page.getByRole('button', { name: '2' }).click();
+  129 |   await page.waitForTimeout(2000);
+  130 |
+  131 |   await page.getByTitle('View Data').nth(2).click();
+  132 |   await page.waitForTimeout(2000);
+  133 |
+  134 |   await page.getByRole('tab', { name: 'Contact Info' }).click();
+  135 |   await page.waitForTimeout(2000);
+  136 |
+  137 |   await page.getByRole('tab', { name: 'Bank Info' }).click();
+  138 |   await page.waitForTimeout(2000);
+  139 |
+  140 |   await page.getByRole('tab', { name: 'Additional Info' }).click();
+  141 |   await page.waitForTimeout(2000);
+  142 |
+  143 |   await page.goBack();
+  144 |
+  145 | /*
+  146 |
+  147 | await page.waitForLoadState("domcontentloaded");
+  148 | await page.getByRole('row', { name: '3 Alex VEN_0015 str' }).getByRole('link').dblclick();
+  149 |   await page.waitForTimeout(2000);
+  150 |
+  151 |   await page.getByRole('button', { name: 'Delete' }).click();
+  152 |   await page.waitForTimeout(2000);
+  153 | */
+  154 | });
+```
