@@ -1,1 +1,0 @@
-C:\Users\Kowsikan\Automation\tests\UItesting\LoginPage.spec.js-snapshots\Loginpage-visual-chromium-win32.png does not match, writing actual.
