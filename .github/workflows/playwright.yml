@@ -35,7 +35,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Install Allure CLI
-        run: npm install -g allure-commandline --save-dev
+        run: npm install -g allure-commandline
 
       - name: Run Playwright tests
         run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js
@@ -54,7 +54,6 @@ jobs:
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
         with:
-        
           name: playwright-html-report
           path: playwright-report
 
