@@ -25,11 +25,20 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
+      - name: Install Allure Playwright Reporter
+        run: npm install --save-dev @playwright-community/allure-playwright
+
       - name: Run Playwright tests
-        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js
+        run: npx playwright test tests/Ajensia/AssetManagement/AssetAssignedList.spec.js --reporter=html,allure
 
       - name: Upload Playwright HTML report
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
           path: playwright-report
+
+      - name: Upload Allure report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
