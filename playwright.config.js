@@ -9,11 +9,12 @@ module.exports = {
 
   retries: process.env.CI ? 2 : 0,
 
-  workers: process.env.CI ? 1 : undefined,
-  
+  workers: process.env.CI ? 1 : undefined,  
+
+  // ✅ Enhanced reporters
   reporter: [
     ['list'],
-    ['html', { outputFolder: 'playwright-report', open: 'never' }],
+    ['playwright-html-reporter', { outputFolder: 'html-report', openReport: true }],
     ['allure-playwright'],
   ],
 
@@ -22,9 +23,9 @@ module.exports = {
   use: {
     actionTimeout: 10_000,
     navigationTimeout: 20_000,
-    trace: 'on-first-retry',		 // Trace recording
-    video: 'retain-on-failure', 		// Video recording	
-    screenshot:  'only-on-failure', 	// Screenshot recording
+    trace: 'on-first-retry',          // Trace recording
+    video: 'retain-on-failure',       // Video recording	
+    screenshot: 'only-on-failure',    // Screenshot recording
   },
 
   projects: [
