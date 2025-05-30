@@ -3,9 +3,9 @@ import { login } from '../../ProjectLogin/AjensiaLogin';
 
 test('test', async ({ page }) => {
 
-    await login(page);
-  
-    await page.waitForTimeout(2000);
+  await login(page);
+
+  await page.waitForTimeout(2000);
 
   await page.getByRole('button', { name: ' Asset Management 󰅂' }).click();
   await page.waitForTimeout(2000);
@@ -140,13 +140,13 @@ test('test', async ({ page }) => {
 
   await page.goBack();
 
-/*
-
-await page.waitForLoadState("domcontentloaded");
-await page.getByRole('row', { name: '3 Alex VEN_0015 str' }).getByRole('link').dblclick();
-  await page.waitForTimeout(2000);
-
-  await page.getByRole('button', { name: 'Delete' }).click();
-  await page.waitForTimeout(2000);
-*/
+  /*
+  
+  await page.waitForLoadState("domcontentloaded");
+  await page.getByRole('row', { name: '3 Alex VEN_0015 str' }).getByRole('link').dblclick();
+    await page.waitForTimeout(2000);
+  
+    await page.getByRole('button', { name: 'Delete' }).click();
+    await page.waitForTimeout(2000);
+  */
 });

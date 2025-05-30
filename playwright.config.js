@@ -7,14 +7,14 @@ module.exports = {
 
   forbidOnly: !!process.env.CI,
 
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 2 : 0,  
 
   workers: process.env.CI ? 1 : undefined,  
 
   // ✅ Enhanced reporters
   reporter: [
     ['list'],
-    ['playwright-html-reporter', { outputFolder: 'html-report', openReport: true }],
+    ['playwright-html-reporter', { outputFolder: 'html-report', openReport: 'always' }],
     ['allure-playwright'],
   ],
 
